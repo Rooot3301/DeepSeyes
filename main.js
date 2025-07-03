@@ -1,12 +1,11 @@
 // Background animation
-function createFloatingElements() {
+function createBackgroundEffects() {
   const container = document.querySelector('.bg-effects');
   
-  for (let i = 0; i < 3; i++) {
-    const element = document.createElement('div');
-    element.className = `bg-circle bg-circle-${i + 1}`;
-    container.appendChild(element);
-  }
+  // Create grid background
+  const grid = document.createElement('div');
+  grid.className = 'bg-grid';
+  container.appendChild(grid);
 }
 
 // FAQ functionality
@@ -52,12 +51,12 @@ function initEmailForm() {
       
       setTimeout(() => {
         button.textContent = 'Être notifié';
-        button.style.background = '#3b82f6';
+        button.style.background = '#2563eb';
       }, 3000);
     } else {
       input.style.borderColor = '#ef4444';
       setTimeout(() => {
-        input.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+        input.style.borderColor = 'rgba(255, 255, 255, 0.15)';
       }, 2000);
     }
   });
@@ -94,9 +93,11 @@ function initHeaderScroll() {
   
   window.addEventListener('scroll', () => {
     if (window.scrollY > 100) {
-      header.style.background = 'rgba(10, 10, 10, 0.95)';
+      header.style.background = 'rgba(10, 10, 10, 0.98)';
+      header.style.borderBottomColor = 'rgba(255, 255, 255, 0.12)';
     } else {
-      header.style.background = 'rgba(10, 10, 10, 0.9)';
+      header.style.background = 'rgba(10, 10, 10, 0.95)';
+      header.style.borderBottomColor = 'rgba(255, 255, 255, 0.08)';
     }
   });
 }
@@ -113,13 +114,16 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Header -->
     <header class="header">
       <nav class="nav">
-        <a href="#" class="logo">Deepseyes</a>
+        <a href="#" class="logo-container">
+          <div class="logo-circle"></div>
+          <span class="logo-text">Deepseyes</span>
+        </a>
         <ul class="nav-links">
-          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#accueil">À propos</a></li>
           <li><a href="#fonctionnalites">Fonctionnalités</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <a href="#" class="btn-login">Connexion</a>
+        <a href="#" class="btn-login">Log In</a>
       </nav>
     </header>
 
@@ -311,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
 
   // Initialize all functionality
-  createFloatingElements();
+  createBackgroundEffects();
   initFAQ();
   initEmailForm();
   initSmoothScroll();
