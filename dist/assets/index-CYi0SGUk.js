@@ -6,7 +6,7 @@
     <header class="header">
       <nav class="nav">
         <a href="#" class="logo-container">
-          <div class="logo-circle"></div>
+          <img src="/Logo_Deepseyes_Transparent.png" alt="Deepseyes" class="logo-image">
           <span class="logo-text">Deepseyes</span>
         </a>
         <ul class="nav-links">
@@ -21,9 +21,9 @@
     <!-- Hero Section -->
     <section id="accueil" class="hero">
       <div class="hero-content">
-        <h1>Le renseignement intelligent.</h1>
-        <p>Deepseyes est en cours de développement. Rejoignez bientôt notre alpha privée.</p>
-        <a href="#fonctionnalites" class="btn-primary">Explorer les fonctionnalités</a>
+        <h1>Website analytics made simple.</h1>
+        <p>Deepseyes is currently in development. Stay tuned for updates!</p>
+        <a href="#fonctionnalites" class="btn-primary">Explore Features</a>
       </div>
     </section>
 
