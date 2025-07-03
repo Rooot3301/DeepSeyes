@@ -1,3 +1,5 @@
+import './style.css'
+
 // Background animation
 function createBackgroundEffects() {
   const container = document.querySelector('.bg-effects');
