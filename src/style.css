@@ -67,25 +67,10 @@ body {
   text-decoration: none;
 }
 
-.logo-circle {
+.logo-image {
   width: 40px;
   height: 40px;
-  background: #ffffff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.logo-circle::before {
-  content: '';
-  width: 20px;
-  height: 20px;
-  background: #0a0a0a;
-  border-radius: 50%;
-  position: absolute;
-  right: 6px;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -493,6 +478,11 @@ body {
   
   .feature-card {
     padding: 2rem;
+  }
+  
+  .logo-image {
+    width: 35px;
+    height: 35px;
   }
 }
 
