@@ -104,6 +104,41 @@ function initHeaderScroll() {
   });
 }
 
+// Scroll animations
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all animatable elements
+  const animatableElements = document.querySelectorAll('.section, .feature-card, .alpha-section, .faq-item');
+  animatableElements.forEach(el => {
+    el.classList.add('animate-on-scroll');
+    observer.observe(el);
+  });
+
+  // Add staggered animation for feature cards
+  const featureCards = document.querySelectorAll('.feature-card');
+  featureCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
+
+  // Add staggered animation for FAQ items
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.05}s`;
+  });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Create the main app structure
@@ -325,4 +360,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initEmailForm();
   initSmoothScroll();
   initHeaderScroll();
+  initScrollAnimations();
 });
