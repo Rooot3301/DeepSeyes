@@ -134,7 +134,10 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="hero-content">
         <h1>Le renseignement intelligent.</h1>
         <p>Deepseyes est en cours de développement. Rejoignez bientôt notre alpha privée.</p>
-        <a href="#fonctionnalites" class="btn-primary">Explore Features</a>
+        <div class="hero-buttons">
+          <a href="#fonctionnalites" class="btn-primary">Explore Features</a>
+          <a href="/demo.html" class="btn-secondary">Voir la démo</a>
+        </div>
       </div>
     </section>
 
