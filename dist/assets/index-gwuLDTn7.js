@@ -1,4 +1,4 @@
-(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const a of e)if(a.type==="childList")for(const o of a.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&n(o)}).observe(document,{childList:!0,subtree:!0});function t(e){const a={};return e.integrity&&(a.integrity=e.integrity),e.referrerPolicy&&(a.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?a.credentials="include":e.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function n(e){if(e.ep)return;e.ep=!0;const a=t(e);fetch(e.href,a)}})();function r(){const i=document.querySelector(".bg-effects"),s=document.createElement("div");s.className="bg-grid",i.appendChild(s)}function c(){const i=document.querySelectorAll(".faq-question");i.forEach(s=>{s.addEventListener("click",()=>{const t=s.nextElementSibling,n=s.querySelector(".faq-icon");i.forEach(e=>{if(e!==s){const a=e.nextElementSibling,o=e.querySelector(".faq-icon");a.classList.remove("active"),o.classList.remove("active")}}),t.classList.toggle("active"),n.classList.toggle("active")})})}function l(){const i=document.querySelector(".email-form"),s=document.querySelector(".email-input"),t=document.querySelector(".btn-notify");i.addEventListener("submit",n=>{n.preventDefault();const e=s.value.trim();e&&d(e)?(t.textContent="Inscrit !",t.style.background="#10b981",s.value="",setTimeout(()=>{t.textContent="Être notifié",t.style.background="#2563eb"},3e3)):(s.style.borderColor="#ef4444",setTimeout(()=>{s.style.borderColor="rgba(255, 255, 255, 0.15)"},2e3))})}function d(i){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i)}function f(){document.querySelectorAll('a[href^="#"]').forEach(s=>{s.addEventListener("click",t=>{t.preventDefault();const n=s.getAttribute("href"),e=document.querySelector(n);e&&e.scrollIntoView({behavior:"smooth",block:"start"})})})}function u(){const i=document.querySelector(".header");window.addEventListener("scroll",()=>{window.scrollY>100?(i.style.background="rgba(10, 10, 10, 0.98)",i.style.borderBottomColor="rgba(255, 255, 255, 0.12)"):(i.style.background="rgba(10, 10, 10, 0.95)",i.style.borderBottomColor="rgba(255, 255, 255, 0.08)")})}document.addEventListener("DOMContentLoaded",()=>{const i=document.getElementById("app");i.innerHTML=`
+(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))o(e);new MutationObserver(e=>{for(const i of e)if(i.type==="childList")for(const t of i.addedNodes)t.tagName==="LINK"&&t.rel==="modulepreload"&&o(t)}).observe(document,{childList:!0,subtree:!0});function n(e){const i={};return e.integrity&&(i.integrity=e.integrity),e.referrerPolicy&&(i.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?i.credentials="include":e.crossOrigin==="anonymous"?i.credentials="omit":i.credentials="same-origin",i}function o(e){if(e.ep)return;e.ep=!0;const i=n(e);fetch(e.href,i)}})();function r(){const a=document.querySelector(".bg-effects"),s=document.createElement("div");s.className="bg-grid",a.appendChild(s)}function c(){const a=document.querySelectorAll(".faq-question");a.forEach(s=>{s.addEventListener("click",()=>{const n=s.nextElementSibling,o=s.querySelector(".faq-icon");a.forEach(e=>{if(e!==s){const i=e.nextElementSibling,t=e.querySelector(".faq-icon");i.classList.remove("active"),t.classList.remove("active")}}),n.classList.toggle("active"),o.classList.toggle("active")})})}function l(){const a=document.querySelector(".email-form"),s=document.querySelector(".email-input"),n=document.querySelector(".btn-notify");a.addEventListener("submit",o=>{o.preventDefault();const e=s.value.trim();e&&d(e)?(n.textContent="Inscrit !",n.style.background="#10b981",s.value="",setTimeout(()=>{n.textContent="Être notifié",n.style.background="#2563eb"},3e3)):(s.style.borderColor="#ef4444",setTimeout(()=>{s.style.borderColor="rgba(255, 255, 255, 0.15)"},2e3))})}function d(a){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a)}function f(){document.querySelectorAll('a[href^="#"]').forEach(s=>{s.addEventListener("click",n=>{n.preventDefault();const o=s.getAttribute("href"),e=document.querySelector(o);e&&e.scrollIntoView({behavior:"smooth",block:"start"})})})}function u(){const a=document.querySelector(".header");window.addEventListener("scroll",()=>{window.scrollY>100?(a.style.background="rgba(10, 10, 10, 0.98)",a.style.borderBottomColor="rgba(255, 255, 255, 0.12)"):(a.style.background="rgba(10, 10, 10, 0.95)",a.style.borderBottomColor="rgba(255, 255, 255, 0.08)")})}function p(){const a={threshold:.1,rootMargin:"0px 0px -50px 0px"},s=new IntersectionObserver(i=>{i.forEach(t=>{t.isIntersecting&&t.target.classList.add("animate-in")})},a);document.querySelectorAll(".section, .feature-card, .alpha-section, .faq-item").forEach(i=>{i.classList.add("animate-on-scroll"),s.observe(i)}),document.querySelectorAll(".feature-card").forEach((i,t)=>{i.style.animationDelay=`${t*.1}s`}),document.querySelectorAll(".faq-item").forEach((i,t)=>{i.style.animationDelay=`${t*.05}s`})}document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("app");a.innerHTML=`
     <!-- Background Effects -->
     <div class="bg-effects"></div>
     
@@ -64,6 +64,22 @@
           </div>
           <h3>Sécurité & confidentialité renforcées</h3>
           <p>Vos recherches et données sont protégées par un chiffrement de bout en bout et des protocoles sécurisés.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-search-plus"></i>
+          </div>
+          <h3>Mode investigation contextuelle</h3>
+          <p>Activez un environnement dédié à l'enquête. Visualisation en plein écran, filtres d'entités, historique des découvertes, et boîte de notes personnelles. Conçu pour les analystes, journalistes ou professionnels de la cybersécurité.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Conformité RGPD & éthique des données</h3>
+          <p>Deepseyes respecte strictement les normes européennes en matière de traitement des données. Aucune donnée sensible n'est conservée, et toutes les analyses sont effectuées dans le respect de la vie privée. Un OSINT éthique, transparent et responsable.</p>
         </div>
       </div>
     </section>
@@ -206,4 +222,4 @@
         </div>
       </div>
     </footer>
-  `,r(),c(),l(),f(),u()});
+  `,r(),c(),l(),f(),u(),p()});

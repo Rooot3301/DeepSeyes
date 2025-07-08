@@ -104,6 +104,41 @@ function initHeaderScroll() {
   });
 }
 
+// Scroll animations
+function initScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+      }
+    });
+  }, observerOptions);
+
+  // Observe all animatable elements
+  const animatableElements = document.querySelectorAll('.section, .feature-card, .alpha-section, .faq-item');
+  animatableElements.forEach(el => {
+    el.classList.add('animate-on-scroll');
+    observer.observe(el);
+  });
+
+  // Add staggered animation for feature cards
+  const featureCards = document.querySelectorAll('.feature-card');
+  featureCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+  });
+
+  // Add staggered animation for FAQ items
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.05}s`;
+  });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   // Create the main app structure
@@ -175,6 +210,22 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <h3>Sécurité & confidentialité renforcées</h3>
           <p>Vos recherches et données sont protégées par un chiffrement de bout en bout et des protocoles sécurisés.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-search-plus"></i>
+          </div>
+          <h3>Mode investigation contextuelle</h3>
+          <p>Activez un environnement dédié à l'enquête. Visualisation en plein écran, filtres d'entités, historique des découvertes, et boîte de notes personnelles. Conçu pour les analystes, journalistes ou professionnels de la cybersécurité.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Conformité RGPD & éthique des données</h3>
+          <p>Deepseyes respecte strictement les normes européennes en matière de traitement des données. Aucune donnée sensible n'est conservée, et toutes les analyses sont effectuées dans le respect de la vie privée. Un OSINT éthique, transparent et responsable.</p>
         </div>
       </div>
     </section>
@@ -325,4 +376,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initEmailForm();
   initSmoothScroll();
   initHeaderScroll();
+  initScrollAnimations();
 });

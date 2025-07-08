@@ -31,7 +31,7 @@ function initNetworkGraph() {
     .append('svg')
     .attr('width', width)
     .attr('height', height)
-    .style('background', '#0f0f0f')
+    .style('background', 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)')
     .style('border-radius', '12px');
 
   const g = svg.append('g');
@@ -47,8 +47,8 @@ function initNetworkGraph() {
 
   // Create force simulation
   const simulation = d3.forceSimulation(graphData.nodes)
-    .force('link', d3.forceLink(graphData.links).id(d => d.id).distance(100))
-    .force('charge', d3.forceManyBody().strength(-300))
+    .force('link', d3.forceLink(graphData.links).id(d => d.id).distance(120))
+    .force('charge', d3.forceManyBody().strength(-400))
     .force('center', d3.forceCenter(width / 2, height / 2));
 
   // Create links
@@ -57,15 +57,16 @@ function initNetworkGraph() {
     .data(graphData.links)
     .enter().append('line')
     .attr('stroke', '#2563eb')
-    .attr('stroke-opacity', 0.6)
-    .attr('stroke-width', d => Math.sqrt(d.strength * 5));
+    .attr('stroke-opacity', 0.8)
+    .attr('stroke-width', d => Math.sqrt(d.strength * 6))
+    .style('filter', 'drop-shadow(0 2px 4px rgba(37, 99, 235, 0.3))');
 
   // Create nodes
   const node = g.append('g')
     .selectAll('circle')
     .data(graphData.nodes)
     .enter().append('circle')
-    .attr('r', 8)
+    .attr('r', 10)
     .attr('fill', d => {
       switch(d.type) {
         case 'person': return '#10b981';
@@ -78,7 +79,8 @@ function initNetworkGraph() {
       }
     })
     .attr('stroke', '#fff')
-    .attr('stroke-width', 2)
+    .attr('stroke-width', 3)
+    .style('filter', 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3))')
     .call(d3.drag()
       .on('start', dragstarted)
       .on('drag', dragged)
@@ -90,10 +92,13 @@ function initNetworkGraph() {
     .data(graphData.nodes)
     .enter().append('text')
     .text(d => d.name)
-    .attr('font-size', '12px')
+    .attr('font-size', '11px')
     .attr('fill', '#ffffff')
+    .attr('font-weight', '500')
     .attr('text-anchor', 'middle')
-    .attr('dy', -15);
+    .attr('dy', -18)
+    .style('text-shadow', '0 1px 3px rgba(0, 0, 0, 0.8)')
+    .style('pointer-events', 'none');
 
   // Update positions on simulation tick
   simulation.on('tick', () => {
@@ -110,6 +115,22 @@ function initNetworkGraph() {
     label
       .attr('x', d => d.x)
       .attr('y', d => d.y);
+  });
+
+  // Add hover effects
+  node.on('mouseover', function(event, d) {
+    d3.select(this)
+      .transition()
+      .duration(200)
+      .attr('r', 12)
+      .style('filter', 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5))');
+  })
+  .on('mouseout', function(event, d) {
+    d3.select(this)
+      .transition()
+      .duration(200)
+      .attr('r', 10)
+      .style('filter', 'drop-shadow(0 2px 8px rgba(0, 0, 0, 0.3))');
   });
 
   // Drag functions
