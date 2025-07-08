@@ -219,6 +219,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3>Mode investigation contextuelle</h3>
           <p>Activez un environnement dédié à l'enquête. Visualisation en plein écran, filtres d'entités, historique des découvertes, et boîte de notes personnelles. Conçu pour les analystes, journalistes ou professionnels de la cybersécurité.</p>
         </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Conformité RGPD & éthique des données</h3>
+          <p>Deepseyes respecte strictement les normes européennes en matière de traitement des données. Aucune donnée sensible n'est conservée, et toutes les analyses sont effectuées dans le respect de la vie privée. Un OSINT éthique, transparent et responsable.</p>
+        </div>
       </div>
     </section>
 

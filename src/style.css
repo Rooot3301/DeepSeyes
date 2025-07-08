@@ -255,18 +255,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
   
-  .feature-card:nth-child(4),
-  .feature-card:nth-child(5) {
-    grid-column: span 1;
-  }
-  
-  .feature-card:nth-child(4) {
-    grid-column: 1 / 2;
-    grid-row: 2;
-  }
-  
-  .feature-card:nth-child(5) {
-    grid-column: 3 / 4;
+  /* Perfect 3x2 grid layout for 6 cards */
+  .feature-card:nth-child(n+4) {
     grid-row: 2;
   }
 }
@@ -276,11 +266,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
   
-  .feature-card:nth-child(5) {
-    grid-column: 1 / -1;
-    max-width: 500px;
-    justify-self: center;
-  }
+  /* 2x3 grid layout for tablets */
 }
 
 .feature-card {
