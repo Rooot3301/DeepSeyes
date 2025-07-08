@@ -21,9 +21,12 @@
     <!-- Hero Section -->
     <section id="accueil" class="hero">
       <div class="hero-content">
-        <h1>Website analytics made simple.</h1>
-        <p>Deepseyes is currently in development. Stay tuned for updates!</p>
-        <a href="#fonctionnalites" class="btn-primary">Explore Features</a>
+        <h1>Le renseignement intelligent.</h1>
+        <p>Deepseyes est en cours de développement. Rejoignez bientôt notre alpha privée.</p>
+        <div class="hero-buttons">
+          <a href="#fonctionnalites" class="btn-primary">Explore Features</a>
+          <a href="/demo.html" class="btn-secondary">Voir la démo</a>
+        </div>
       </div>
     </section>
 
@@ -41,7 +44,7 @@
         
         <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-chart-network"></i>
+            <i class="fas fa-chart-bar"></i>
           </div>
           <h3>Visualisation avancée des données</h3>
           <p>Transformez vos données en graphiques interactifs et cartes de relations pour une analyse approfondie.</p>
@@ -57,7 +60,7 @@
         
         <div class="feature-card">
           <div class="feature-icon">
-            <i class="fas fa-shield-alt"></i>
+            <i class="fas fa-lock"></i>
           </div>
           <h3>Sécurité & confidentialité renforcées</h3>
           <p>Vos recherches et données sont protégées par un chiffrement de bout en bout et des protocoles sécurisés.</p>
