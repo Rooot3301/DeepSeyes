@@ -211,6 +211,14 @@ document.addEventListener('DOMContentLoaded', () => {
           <h3>Sécurité & confidentialité renforcées</h3>
           <p>Vos recherches et données sont protégées par un chiffrement de bout en bout et des protocoles sécurisés.</p>
         </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-search-plus"></i>
+          </div>
+          <h3>Mode investigation contextuelle</h3>
+          <p>Activez un environnement dédié à l'enquête. Visualisation en plein écran, filtres d'entités, historique des découvertes, et boîte de notes personnelles. Conçu pour les analystes, journalistes ou professionnels de la cybersécurité.</p>
+        </div>
       </div>
     </section>
 
