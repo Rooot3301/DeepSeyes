@@ -402,8 +402,13 @@ By: Assistant IA | Version: 1.0
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer enhanced-footer">
       <div class="footer-content">
+        <div class="footer-header">
+          <h3 class="footer-title">Deepseyes</h3>
+          <p class="footer-slogan">L'Intelligence de l'Invisible</p>
+        </div>
+        
         <div class="footer-links">
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
@@ -417,8 +422,12 @@ By: Assistant IA | Version: 1.0
           <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
         </div>
         
+        <div class="footer-cta">
+          <a href="/" class="btn-footer-cta">Rejoindre l'Alpha</a>
+        </div>
+        
         <div class="copyright">
-          <p>Copyright © Deepseyes 2025</p>
+          <p>© 2025 Deepseyes. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
