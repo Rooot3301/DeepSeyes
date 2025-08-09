@@ -158,6 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <ul class="nav-links">
           <li><a href="#accueil">À propos</a></li>
           <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="/tools.html">Nos outils</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a href="#" class="btn-login">Log In</a>
