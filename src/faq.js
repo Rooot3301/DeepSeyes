@@ -1,5 +1,110 @@
 import './style.css'
 
+// Search functionality
+function initFAQSearch() {
+  const searchInput = document.querySelector('.faq-search-input');
+  const faqItems = document.querySelectorAll('.faq-item');
+  const faqCategories = document.querySelectorAll('.faq-category');
+  const searchResults = document.querySelector('.search-results');
+  const clearSearch = document.querySelector('.clear-search');
+
+  if (!searchInput) return;
+
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase().trim();
+    
+    if (query === '') {
+      // Show all items and categories
+      faqItems.forEach(item => {
+        item.style.display = 'block';
+        // Close any open answers
+        const answer = item.querySelector('.faq-answer');
+        const icon = item.querySelector('.faq-icon');
+        answer.classList.remove('active');
+        icon.classList.remove('active');
+      });
+      faqCategories.forEach(category => category.style.display = 'block');
+      searchResults.style.display = 'none';
+      clearSearch.style.display = 'none';
+      return;
+    }
+
+    let hasResults = false;
+    let resultCount = 0;
+
+    faqCategories.forEach(category => {
+      const categoryItems = category.querySelectorAll('.faq-item');
+      let categoryHasResults = false;
+
+      categoryItems.forEach(item => {
+        const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+        const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+        
+        if (question.includes(query) || answer.includes(query)) {
+          item.style.display = 'block';
+          categoryHasResults = true;
+          hasResults = true;
+          resultCount++;
+          
+          // Auto-expand matching items
+          const answerEl = item.querySelector('.faq-answer');
+          const icon = item.querySelector('.faq-icon');
+          answerEl.classList.add('active');
+          icon.classList.add('active');
+          
+          // Highlight matching text
+          highlightText(item, query);
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      // Show/hide category based on results
+      category.style.display = categoryHasResults ? 'block' : 'none';
+    });
+
+    // Update search results info
+    if (hasResults) {
+      searchResults.innerHTML = `<i class="fas fa-search"></i> ${resultCount} résultat${resultCount > 1 ? 's' : ''} trouvé${resultCount > 1 ? 's' : ''} pour "${query}"`;
+      searchResults.style.display = 'block';
+    } else {
+      searchResults.innerHTML = `<i class="fas fa-search"></i> Aucun résultat pour "${query}"`;
+      searchResults.style.display = 'block';
+    }
+    
+    clearSearch.style.display = 'block';
+  });
+
+  // Clear search functionality
+  clearSearch.addEventListener('click', () => {
+    searchInput.value = '';
+    searchInput.dispatchEvent(new Event('input'));
+    searchInput.focus();
+  });
+
+  // Clear search on Escape key
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      clearSearch.click();
+    }
+  });
+}
+
+// Highlight matching text
+function highlightText(item, query) {
+  const question = item.querySelector('.faq-question span');
+  const answer = item.querySelector('.faq-answer p');
+  
+  // Remove existing highlights
+  question.innerHTML = question.textContent;
+  answer.innerHTML = answer.textContent;
+  
+  // Add highlights
+  const regex = new RegExp(`(${query})`, 'gi');
+  question.innerHTML = question.textContent.replace(regex, '<mark>$1</mark>');
+  answer.innerHTML = answer.textContent.replace(regex, '<mark>$1</mark>');
+}
+
 // FAQ functionality
 function initFAQ() {
   const faqItems = document.querySelectorAll('.faq-question');
@@ -79,6 +184,19 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="hero-content">
         <h1>Questions Fréquentes</h1>
         <p>Trouvez rapidement les réponses à vos questions sur Deepseyes, notre plateforme d'OSINT assistée par IA.</p>
+        
+        <!-- Search Bar -->
+        <div class="faq-search-container">
+          <div class="faq-search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="faq-search-input" placeholder="Rechercher dans la FAQ..." autocomplete="off">
+            <button class="clear-search" style="display: none;">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="search-results" style="display: none;"></div>
+        </div>
+        
         <div class="faq-quick-nav">
           <a href="#general" class="quick-nav-btn">
             <i class="fas fa-info-circle"></i>
@@ -288,4 +406,5 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize functionality
   initFAQ();
   initSmoothScroll();
+  initFAQSearch();
 });
