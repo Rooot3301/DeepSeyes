@@ -472,7 +472,7 @@ body {
 
 .faq-answer.active {
   padding: 0 2rem 2rem;
-  max-height: 200px;
+  max-height: 300px;
 }
 
 .faq-answer p {
