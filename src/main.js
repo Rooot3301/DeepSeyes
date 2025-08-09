@@ -466,7 +466,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fas fa-chevron-down faq-icon"></i>
           </div>
           <div class="faq-answer">
-            <p>Une version responsive est prévue dans les futures mises à jour.</p>
+            <p>Oui. Deepseyes sera accessible depuis un navigateur web sur mobile et tablette dès le lancement, avec une interface optimisée pour les petits écrans.<br><br>Une application mobile dédiée (iOS & Android) est également prévue dans notre feuille de route, afin d'offrir une expérience plus fluide, des notifications en temps réel et un accès rapide aux outils OSINT, même en déplacement.</p>
           </div>
         </div>
 
