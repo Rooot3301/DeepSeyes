@@ -1,158 +1,5 @@
 import './style.css'
 
-// Background animation
-function createBackgroundEffects() {
-  const container = document.querySelector('.bg-effects');
-  
-  // Create grid background
-  const grid = document.createElement('div');
-  grid.className = 'bg-grid';
-  container.appendChild(grid);
-
-  // Create particle network
-  createParticleNetwork(container);
-}
-
-// Particle network system
-function createParticleNetwork(container) {
-  const canvas = document.createElement('canvas');
-  canvas.className = 'particle-canvas';
-  container.appendChild(canvas);
-  
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  let animationId;
-  
-  // Resize canvas
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
-  
-  // Particle class
-  class Particle {
-    constructor() {
-      this.x = Math.random() * canvas.width;
-      this.y = Math.random() * canvas.height;
-      this.vx = (Math.random() - 0.5) * 0.5;
-      this.vy = (Math.random() - 0.5) * 0.5;
-      this.size = Math.random() * 2 + 1;
-      this.opacity = Math.random() * 0.5 + 0.2;
-    }
-    
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
-      
-      // Bounce off edges
-      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      
-      // Keep particles in bounds
-      this.x = Math.max(0, Math.min(canvas.width, this.x));
-      this.y = Math.max(0, Math.min(canvas.height, this.y));
-    }
-    
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity})`;
-      ctx.fill();
-    }
-  }
-  
-  // Initialize particles
-  function initParticles() {
-    particles = [];
-    const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
-    
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-  }
-  
-  // Draw connections between nearby particles
-  function drawConnections() {
-    const maxDistance = 120;
-    
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        if (distance < maxDistance) {
-          const opacity = (1 - distance / maxDistance) * 0.15;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(37, 99, 235, ${opacity})`;
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
-    }
-  }
-  
-  // Animation loop
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    
-    // Update and draw particles
-    particles.forEach(particle => {
-      particle.update();
-      particle.draw();
-    });
-    
-    // Draw connections
-    drawConnections();
-    
-    animationId = requestAnimationFrame(animate);
-  }
-  
-  // Mouse interaction
-  let mouseX = 0;
-  let mouseY = 0;
-  
-  canvas.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    
-    // Attract nearby particles to mouse
-    particles.forEach(particle => {
-      const dx = mouseX - particle.x;
-      const dy = mouseY - particle.y;
-      const distance = Math.sqrt(dx * dx + dy * dy);
-      
-      if (distance < 100) {
-        const force = (100 - distance) / 100 * 0.01;
-        particle.vx += dx * force * 0.01;
-        particle.vy += dy * force * 0.01;
-      }
-    });
-  });
-  
-  // Initialize and start
-  resizeCanvas();
-  initParticles();
-  animate();
-  
-  // Handle resize
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    initParticles();
-  });
-  
-  // Pause animation when page is not visible (performance)
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      cancelAnimationFrame(animationId);
-    } else {
-      animate();
-    }
-  });
-}
-
 // FAQ functionality
 function initFAQ() {
   const faqItems = document.querySelectorAll('.faq-question');
@@ -179,39 +26,6 @@ function initFAQ() {
   });
 }
 
-// Email form handling
-function initEmailForm() {
-  const form = document.querySelector('.email-form');
-  const input = document.querySelector('.email-input');
-  const button = document.querySelector('.btn-notify');
-  
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = input.value.trim();
-    
-    if (email && isValidEmail(email)) {
-      button.textContent = 'Inscrit !';
-      button.style.background = '#10b981';
-      input.value = '';
-      
-      setTimeout(() => {
-        button.textContent = 'Être notifié';
-        button.style.background = '#2563eb';
-      }, 3000);
-    } else {
-      input.style.borderColor = '#ef4444';
-      setTimeout(() => {
-        input.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-      }, 2000);
-    }
-  });
-}
-
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
 // Smooth scroll for navigation links
 function initSmoothScroll() {
   const links = document.querySelectorAll('a[href^="#"]');
@@ -232,168 +46,66 @@ function initSmoothScroll() {
   });
 }
 
-// Header scroll effect
-function initHeaderScroll() {
-  const header = document.querySelector('.header');
-  
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 100) {
-      header.style.background = 'rgba(10, 10, 10, 0.98)';
-      header.style.borderBottomColor = 'rgba(255, 255, 255, 0.12)';
-    } else {
-      header.style.background = 'rgba(10, 10, 10, 0.95)';
-      header.style.borderBottomColor = 'rgba(255, 255, 255, 0.08)';
-    }
-  });
-}
-
-// Scroll animations
-function initScrollAnimations() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate-in');
-      }
-    });
-  }, observerOptions);
-
-  // Observe all animatable elements
-  const animatableElements = document.querySelectorAll('.section, .feature-card, .alpha-section, .faq-item');
-  animatableElements.forEach(el => {
-    el.classList.add('animate-on-scroll');
-    observer.observe(el);
-  });
-
-  // Add staggered animation for feature cards
-  const featureCards = document.querySelectorAll('.feature-card');
-  featureCards.forEach((card, index) => {
-    card.style.animationDelay = `${index * 0.1}s`;
-  });
-
-  // Add staggered animation for FAQ items
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach((item, index) => {
-    item.style.animationDelay = `${index * 0.05}s`;
-  });
-}
-
-// Initialize everything when DOM is loaded
+// Initialize FAQ page
 document.addEventListener('DOMContentLoaded', () => {
-  // Create the main app structure
-  const app = document.getElementById('app');
+  const app = document.getElementById('faq-app');
   
   app.innerHTML = `
     <!-- Background Effects -->
-    <div class="bg-effects"></div>
+    <div class="bg-effects">
+      <div class="bg-grid"></div>
+    </div>
     
     <!-- Header -->
     <header class="header">
       <nav class="nav">
-        <a href="#" class="logo-container">
+        <a href="/" class="logo-container">
           <img src="/Logo_Deepseyes_Transparent.png" alt="Deepseyes" class="logo-image">
           <span class="logo-text">Deepseyes</span>
         </a>
         <ul class="nav-links">
-          <li><a href="#accueil">À propos</a></li>
-          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/#fonctionnalites">Fonctionnalités</a></li>
           <li><a href="/faq.html">FAQ</a></li>
           <li><a href="/tools.html">Nos outils</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/#contact">Contact</a></li>
         </ul>
         <a href="#" class="btn-login">Log In</a>
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="accueil" class="hero">
+    <!-- FAQ Hero Section -->
+    <section class="hero faq-hero">
       <div class="hero-content">
-        <h1>Le renseignement intelligent.</h1>
-        <p>Deepseyes est en cours de développement. Rejoignez bientôt notre alpha privée.</p>
-        <div class="hero-buttons">
-          <a href="#fonctionnalites" class="btn-primary">Explore Features</a>
-          <a href="/demo.html" class="btn-secondary">Voir la démo</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="fonctionnalites" class="section">
-      <h2>Fonctionnalités</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-search"></i>
-          </div>
-          <h3>Moteur de recherche OSINT intelligent</h3>
-          <p>Explorez le web avec des algorithmes d'IA avancés pour découvrir des informations pertinentes et cachées.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <h3>Visualisation avancée des données</h3>
-          <p>Transformez vos données en graphiques interactifs et cartes de relations pour une analyse approfondie.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-bell"></i>
-          </div>
-          <h3>Système d'alertes personnalisées</h3>
-          <p>Recevez des notifications en temps réel sur les sujets qui vous intéressent grâce à notre veille automatisée.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-lock"></i>
-          </div>
-          <h3>Sécurité & confidentialité renforcées</h3>
-          <p>Vos recherches et données sont protégées par un chiffrement de bout en bout et des protocoles sécurisés.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-search-plus"></i>
-          </div>
-          <h3>Mode investigation contextuelle</h3>
-          <p>Activez un environnement dédié à l'enquête. Visualisation en plein écran, filtres d'entités, historique des découvertes, et boîte de notes personnelles. Conçu pour les analystes, journalistes ou professionnels de la cybersécurité.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
+        <h1>Questions Fréquentes</h1>
+        <p>Trouvez rapidement les réponses à vos questions sur Deepseyes, notre plateforme d'OSINT assistée par IA.</p>
+        <div class="faq-quick-nav">
+          <a href="#general" class="quick-nav-btn">
+            <i class="fas fa-info-circle"></i>
+            Général
+          </a>
+          <a href="#access" class="quick-nav-btn">
+            <i class="fas fa-rocket"></i>
+            Accès & Alpha
+          </a>
+          <a href="#security" class="quick-nav-btn">
             <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3>Conformité RGPD & éthique des données</h3>
-          <p>Deepseyes respecte strictement les normes européennes en matière de traitement des données. Aucune donnée sensible n'est conservée, et toutes les analyses sont effectuées dans le respect de la vie privée. Un OSINT éthique, transparent et responsable.</p>
+            Sécurité
+          </a>
+          <a href="#services" class="quick-nav-btn">
+            <i class="fas fa-handshake"></i>
+            Services
+          </a>
         </div>
-      </div>
-    </section>
-
-    <!-- Alpha Section -->
-    <section class="section">
-      <div class="alpha-section">
-        <h2>Rejoindre l'Alpha</h2>
-        <p>L'alpha de Deepseyes ouvrira prochainement. Inscrivez-vous pour être informé en avant-première.</p>
-        <form class="email-form">
-          <input type="email" class="email-input" placeholder="Votre adresse e-mail" required>
-          <button type="submit" class="btn-notify">Être notifié</button>
-        </form>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="section">
-      <h2>Questions Fréquentes</h2>
+    <section class="section faq-main">
       <div class="faq-container">
         
         <!-- Général -->
-        <div class="faq-category">
+        <div id="general" class="faq-category">
           <h3 class="faq-category-title">
             <i class="fas fa-info-circle"></i>
             Général
@@ -421,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Accès & Alpha -->
-        <div class="faq-category">
+        <div id="access" class="faq-category">
           <h3 class="faq-category-title">
             <i class="fas fa-rocket"></i>
             Accès & Alpha
@@ -469,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Technique & Sécurité -->
-        <div class="faq-category">
+        <div id="security" class="faq-category">
           <h3 class="faq-category-title">
             <i class="fas fa-shield-alt"></i>
             Technique & Sécurité
@@ -507,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Services -->
-        <div class="faq-category">
+        <div id="services" class="faq-category">
           <h3 class="faq-category-title">
             <i class="fas fa-handshake"></i>
             Services
@@ -526,8 +238,26 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     </section>
 
+    <!-- CTA Section -->
+    <section class="section">
+      <div class="faq-cta">
+        <h2>Vous avez d'autres questions ?</h2>
+        <p>Rejoignez notre communauté Discord pour poser vos questions directement à l'équipe et échanger avec d'autres utilisateurs.</p>
+        <div class="cta-buttons">
+          <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="btn-primary">
+            <i class="fab fa-discord"></i>
+            Rejoindre Discord
+          </a>
+          <a href="/#contact" class="btn-secondary">
+            <i class="fas fa-envelope"></i>
+            Nous contacter
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact" class="footer">
+    <footer class="footer">
       <div class="footer-content">
         <div class="footer-links">
           <a href="#">Mentions légales</a>
@@ -549,11 +279,13 @@ document.addEventListener('DOMContentLoaded', () => {
     </footer>
   `;
 
-  // Initialize all functionality
-  createBackgroundEffects();
+  // Initialize background effects
+  const container = document.querySelector('.bg-effects');
+  const grid = document.createElement('div');
+  grid.className = 'bg-grid';
+  container.appendChild(grid);
+
+  // Initialize functionality
   initFAQ();
-  initEmailForm();
   initSmoothScroll();
-  initHeaderScroll();
-  initScrollAnimations();
 });
