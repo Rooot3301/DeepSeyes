@@ -360,6 +360,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="social-icons">
           <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
           <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
         </div>
         
