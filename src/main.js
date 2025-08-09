@@ -390,103 +390,136 @@ document.addEventListener('DOMContentLoaded', () => {
     <section class="section">
       <h2>Questions Fréquentes</h2>
       <div class="faq-container">
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Qu'est-ce que Deepseyes ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
+        
+        <!-- Général -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">
+            <i class="fas fa-info-circle"></i>
+            Général
+          </h3>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Qu'est-ce que Deepseyes ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Deepseyes est une plateforme d'OSINT (Open Source Intelligence) assistée par intelligence artificielle. Elle permet d'explorer, analyser et visualiser les informations accessibles publiquement sur Internet afin d'aider à la veille stratégique, à la cybersécurité et aux enquêtes numériques.<br><br>Pensé pour les professionnels comme pour les passionnés, Deepseyes offre des outils puissants, sécurisés et respectueux de l'éthique et du RGPD, afin de révéler l'invisible tout en garantissant la confidentialité des recherches.</p>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>Deepseyes est une plateforme d'OSINT (Open Source Intelligence) assistée par intelligence artificielle. Elle permet d'explorer, analyser et visualiser les informations accessibles publiquement sur Internet afin d'aider à la veille stratégique, à la cybersécurité et aux enquêtes numériques.<br><br>Pensé pour les professionnels comme pour les passionnés, Deepseyes offre des outils puissants, sécurisés et respectueux de l'éthique et du RGPD, afin de révéler l'invisible tout en garantissant la confidentialité des recherches.</p>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>À qui s'adresse Deepseyes ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Deepseyes s'adresse à toute personne ou organisation ayant besoin de rechercher, analyser et comprendre des données publiques de manière rapide et structurée.<br><br>Nos outils sont pensés pour :<br><br><strong>Les professionnels de la cybersécurité :</strong> détection de menaces, veille technique, investigations numériques.<br><br><strong>Les journalistes et enquêteurs :</strong> recherche d'informations vérifiées et traçage de sources.<br><br><strong>Les entreprises et institutions :</strong> veille concurrentielle, analyse de marché, gestion de réputation.<br><br><strong>Les passionnés d'OSINT :</strong> exploration et apprentissage dans un cadre légal et sécurisé.<br><br>Que vous soyez un expert ou un débutant, Deepseyes fournit un environnement clair, éthique et performant pour transformer des données brutes en informations exploitables.</p>
+            </div>
           </div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>À qui s'adresse Deepseyes ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
+        <!-- Accès & Alpha -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">
+            <i class="fas fa-rocket"></i>
+            Accès & Alpha
+          </h3>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Est-ce que l'outil est déjà accessible ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Pas encore au public.<br><br>Deepseyes est actuellement en phase de développement et prépare le lancement de son alpha privée. Cette première version permettra à un nombre limité d'utilisateurs de tester nos fonctionnalités clés et de contribuer à améliorer la plateforme.<br><br>Vous pouvez dès maintenant réserver votre accès en vous inscrivant à notre liste d'attente — et être informé en avant-première de l'ouverture.</p>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>Deepseyes s'adresse à toute personne ou organisation ayant besoin de rechercher, analyser et comprendre des données publiques de manière rapide et structurée.<br><br>Nos outils sont pensés pour :<br><br><strong>Les professionnels de la cybersécurité :</strong> détection de menaces, veille technique, investigations numériques.<br><br><strong>Les journalistes et enquêteurs :</strong> recherche d'informations vérifiées et traçage de sources.<br><br><strong>Les entreprises et institutions :</strong> veille concurrentielle, analyse de marché, gestion de réputation.<br><br><strong>Les passionnés d'OSINT :</strong> exploration et apprentissage dans un cadre légal et sécurisé.<br><br>Que vous soyez un expert ou un débutant, Deepseyes fournit un environnement clair, éthique et performant pour transformer des données brutes en informations exploitables.</p>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Comment rejoindre l'alpha ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>L'Alpha privée de Deepseyes arrive bientôt.<br><br>Pour en faire partie, vous pourrez prochainement :<br><br><strong>• Vous inscrire via notre formulaire en ligne</strong> pour recevoir une invitation prioritaire.<br><br><strong>• Rejoindre notre serveur Discord dédié</strong>, où les premiers accès seront distribués et où vous pourrez suivre en direct les annonces, mises à jour et tests.<br><br>Les premiers membres du Discord auront plus de chances d'obtenir leur accès rapidement.<br><br><strong>Restez à l'affût : les invitations seront ouvertes très bientôt.</strong></p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Combien coûtera Deepseyes ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Deepseyes proposera un modèle freemium :<br><br><strong>• Accès gratuit</strong> aux outils de base pour découvrir et utiliser l'OSINT assisté par IA.<br><br><strong>• Abonnement premium</strong> pour débloquer des fonctionnalités avancées, des analyses plus poussées et des limites élargies.<br><br>Les tarifs exacts seront annoncés à l'ouverture de la bêta, avec des offres préférentielles pour les premiers utilisateurs et les membres de l'Alpha.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Puis-je utiliser Deepseyes sans être expert ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Oui. Deepseyes est conçu pour être accessible à tous, que vous soyez débutant curieux ou professionnel expérimenté.<br><br><strong>• Interface claire et intuitive</strong> pour se lancer rapidement.<br><br><strong>• Guides intégrés et tutoriels</strong> pour apprendre à utiliser chaque outil pas à pas.<br><br><strong>• Modes d'analyse assistée par IA</strong> pour interpréter facilement les résultats, même sans connaissances techniques poussées.<br><br>Notre objectif : rendre la puissance de l'OSINT compréhensible et exploitable par le plus grand nombre, sans compromis sur la qualité des analyses.</p>
+            </div>
           </div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Est-ce que l'outil est déjà accessible ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
+        <!-- Technique & Sécurité -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">
+            <i class="fas fa-shield-alt"></i>
+            Technique & Sécurité
+          </h3>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Comment mes données sont-elles protégées ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>La sécurité et la confidentialité de vos données sont une priorité absolue pour Deepseyes.<br><br><strong>• Chiffrement complet</strong> des échanges et du stockage (HTTPS/TLS & chiffrement AES).<br><br><strong>• Aucune revente ni partage</strong> de vos informations personnelles à des tiers.<br><br><strong>• Conformité RGPD :</strong> vos données restent sous votre contrôle et peuvent être supprimées à tout moment sur simple demande.<br><br><strong>• Serveurs sécurisés</strong> avec surveillance en continu et protection contre les intrusions.<br><br>Deepseyes est conçu pour que vos recherches et vos données restent strictement confidentielles.</p>
+            </div>
           </div>
-          <div class="faq-answer">
-            <p>Pas encore au public.<br><br>Deepseyes est actuellement en phase de développement et prépare le lancement de son alpha privée. Cette première version permettra à un nombre limité d'utilisateurs de tester nos fonctionnalités clés et de contribuer à améliorer la plateforme.<br><br>Vous pouvez dès maintenant réserver votre accès en vous inscrivant à notre liste d'attente — et être informé en avant-première de l'ouverture.</p>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Y aura-t-il une version mobile ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Oui. Deepseyes sera accessible depuis un navigateur web sur mobile et tablette dès le lancement, avec une interface optimisée pour les petits écrans.<br><br>Une application mobile dédiée (iOS & Android) est également prévue dans notre feuille de route, afin d'offrir une expérience plus fluide, des notifications en temps réel et un accès rapide aux outils OSINT, même en déplacement.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Puis-je intégrer mes propres sources ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Oui. Deepseyes permettra d'ajouter et connecter vos propres sources de données dès les versions avancées.<br><br><strong>• Import de fichiers</strong> (CSV, JSON, TXT…)<br><br><strong>• Connexion à des flux RSS ou API externes</strong><br><br><strong>• Intégration de bases de données internes</strong> (selon vos droits et votre infrastructure)<br><br>Cette fonctionnalité ne sera pas disponible dès l'Alpha publique, mais elle fait partie de notre feuille de route prioritaire pour offrir un environnement OSINT entièrement personnalisable.</p>
+            </div>
           </div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Comment rejoindre l'alpha ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
-          </div>
-          <div class="faq-answer">
-            <p>L'Alpha privée de Deepseyes arrive bientôt.<br><br>Pour en faire partie, vous pourrez prochainement :<br><br><strong>• Vous inscrire via notre formulaire en ligne</strong> pour recevoir une invitation prioritaire.<br><br><strong>• Rejoindre notre serveur Discord dédié</strong>, où les premiers accès seront distribués et où vous pourrez suivre en direct les annonces, mises à jour et tests.<br><br>Les premiers membres du Discord auront plus de chances d'obtenir leur accès rapidement.<br><br><strong>Restez à l'affût : les invitations seront ouvertes très bientôt.</strong></p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Combien coûtera Deepseyes ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Deepseyes proposera un modèle freemium :<br><br><strong>• Accès gratuit</strong> aux outils de base pour découvrir et utiliser l'OSINT assisté par IA.<br><br><strong>• Abonnement premium</strong> pour débloquer des fonctionnalités avancées, des analyses plus poussées et des limites élargies.<br><br>Les tarifs exacts seront annoncés à l'ouverture de la bêta, avec des offres préférentielles pour les premiers utilisateurs et les membres de l'Alpha.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Comment mes données sont-elles protégées ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
-          </div>
-          <div class="faq-answer">
-            <p>La sécurité et la confidentialité de vos données sont une priorité absolue pour Deepseyes.<br><br><strong>• Chiffrement complet</strong> des échanges et du stockage (HTTPS/TLS & chiffrement AES).<br><br><strong>• Aucune revente ni partage</strong> de vos informations personnelles à des tiers.<br><br><strong>• Conformité RGPD :</strong> vos données restent sous votre contrôle et peuvent être supprimées à tout moment sur simple demande.<br><br><strong>• Serveurs sécurisés</strong> avec surveillance en continu et protection contre les intrusions.<br><br>Deepseyes est conçu pour que vos recherches et vos données restent strictement confidentielles.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Puis-je utiliser Deepseyes sans être expert ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Oui. Deepseyes est conçu pour être accessible à tous, que vous soyez débutant curieux ou professionnel expérimenté.<br><br><strong>• Interface claire et intuitive</strong> pour se lancer rapidement.<br><br><strong>• Guides intégrés et tutoriels</strong> pour apprendre à utiliser chaque outil pas à pas.<br><br><strong>• Modes d'analyse assistée par IA</strong> pour interpréter facilement les résultats, même sans connaissances techniques poussées.<br><br>Notre objectif : rendre la puissance de l'OSINT compréhensible et exploitable par le plus grand nombre, sans compromis sur la qualité des analyses.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Y aura-t-il une version mobile ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Oui. Deepseyes sera accessible depuis un navigateur web sur mobile et tablette dès le lancement, avec une interface optimisée pour les petits écrans.<br><br>Une application mobile dédiée (iOS & Android) est également prévue dans notre feuille de route, afin d'offrir une expérience plus fluide, des notifications en temps réel et un accès rapide aux outils OSINT, même en déplacement.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Puis-je intégrer mes propres sources ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Oui. Deepseyes permettra d'ajouter et connecter vos propres sources de données dès les versions avancées.<br><br><strong>• Import de fichiers</strong> (CSV, JSON, TXT…)<br><br><strong>• Connexion à des flux RSS ou API externes</strong><br><br><strong>• Intégration de bases de données internes</strong> (selon vos droits et votre infrastructure)<br><br>Cette fonctionnalité ne sera pas disponible dès l'Alpha publique, mais elle fait partie de notre feuille de route prioritaire pour offrir un environnement OSINT entièrement personnalisable.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-question">
-            <span>Puis-je contacter l'équipe pour du consulting ?</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
-          </div>
-          <div class="faq-answer">
-            <p>Pas pour le moment.<br><br>Deepseyes se concentre actuellement sur le développement et le lancement de la plateforme.<br><br>Cependant, des services de consulting et d'accompagnement personnalisé (veille stratégique, cybersécurité, formation OSINT) sont prévus dans le futur, une fois la version complète disponible.<br><br>Les annonces liées à ces services seront communiquées sur notre site et notre serveur Discord.</p>
+        <!-- Services -->
+        <div class="faq-category">
+          <h3 class="faq-category-title">
+            <i class="fas fa-handshake"></i>
+            Services
+          </h3>
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Puis-je contacter l'équipe pour du consulting ?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </div>
+            <div class="faq-answer">
+              <p>Pas pour le moment.<br><br>Deepseyes se concentre actuellement sur le développement et le lancement de la plateforme.<br><br>Cependant, des services de consulting et d'accompagnement personnalisé (veille stratégique, cybersécurité, formation OSINT) sont prévus dans le futur, une fois la version complète disponible.<br><br>Les annonces liées à ces services seront communiquées sur notre site et notre serveur Discord.</p>
+            </div>
           </div>
         </div>
       </div>
