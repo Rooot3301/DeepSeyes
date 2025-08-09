@@ -375,11 +375,13 @@ document.addEventListener('DOMContentLoaded', () => {
     </section>
 
     <!-- Footer -->
-    <footer class="footer enhanced-footer">
+    <footer class="footer">
       <div class="footer-content">
-        <div class="footer-header">
-          <h3 class="footer-title">Deepseyes</h3>
-          <p class="footer-slogan">L'Intelligence de l'Invisible</p>
+        <div class="footer-brand">
+          <div>
+            <h3 class="footer-title">Deepseyes</h3>
+            <p class="footer-slogan">L'Intelligence de l'Invisible</p>
+          </div>
         </div>
         
         <div class="footer-links">
@@ -388,6 +390,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="#">Contact</a>
         </div>
         
+        <div class="footer-separator"></div>
+        
         <div class="social-icons">
           <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
           <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
@@ -395,12 +399,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
         </div>
         
-        <div class="footer-cta">
+        <div class="footer-right">
           <a href="/#" class="btn-footer-cta">Rejoindre l'Alpha</a>
-        </div>
-        
-        <div class="copyright">
-          <p>© 2025 Deepseyes. Tous droits réservés.</p>
+          <p class="footer-copyright">© 2025 Deepseyes. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
