@@ -8,6 +8,149 @@ function createBackgroundEffects() {
   const grid = document.createElement('div');
   grid.className = 'bg-grid';
   container.appendChild(grid);
+
+  // Create particle network
+  createParticleNetwork(container);
+}
+
+// Particle network system
+function createParticleNetwork(container) {
+  const canvas = document.createElement('canvas');
+  canvas.className = 'particle-canvas';
+  container.appendChild(canvas);
+  
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  let animationId;
+  
+  // Resize canvas
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  
+  // Particle class
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.vx = (Math.random() - 0.5) * 0.5;
+      this.vy = (Math.random() - 0.5) * 0.5;
+      this.size = Math.random() * 2 + 1;
+      this.opacity = Math.random() * 0.5 + 0.2;
+    }
+    
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      
+      // Bounce off edges
+      if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+      if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      
+      // Keep particles in bounds
+      this.x = Math.max(0, Math.min(canvas.width, this.x));
+      this.y = Math.max(0, Math.min(canvas.height, this.y));
+    }
+    
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(37, 99, 235, ${this.opacity})`;
+      ctx.fill();
+    }
+  }
+  
+  // Initialize particles
+  function initParticles() {
+    particles = [];
+    const particleCount = Math.min(80, Math.floor((canvas.width * canvas.height) / 15000));
+    
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+  }
+  
+  // Draw connections between nearby particles
+  function drawConnections() {
+    const maxDistance = 120;
+    
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance < maxDistance) {
+          const opacity = (1 - distance / maxDistance) * 0.15;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(37, 99, 235, ${opacity})`;
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+  }
+  
+  // Animation loop
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    // Update and draw particles
+    particles.forEach(particle => {
+      particle.update();
+      particle.draw();
+    });
+    
+    // Draw connections
+    drawConnections();
+    
+    animationId = requestAnimationFrame(animate);
+  }
+  
+  // Mouse interaction
+  let mouseX = 0;
+  let mouseY = 0;
+  
+  canvas.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    // Attract nearby particles to mouse
+    particles.forEach(particle => {
+      const dx = mouseX - particle.x;
+      const dy = mouseY - particle.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < 100) {
+        const force = (100 - distance) / 100 * 0.01;
+        particle.vx += dx * force * 0.01;
+        particle.vy += dy * force * 0.01;
+      }
+    });
+  });
+  
+  // Initialize and start
+  resizeCanvas();
+  initParticles();
+  animate();
+  
+  // Handle resize
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    initParticles();
+  });
+  
+  // Pause animation when page is not visible (performance)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      cancelAnimationFrame(animationId);
+    } else {
+      animate();
+    }
+  });
 }
 
 // FAQ functionality
