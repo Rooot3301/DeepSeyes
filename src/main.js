@@ -436,7 +436,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fas fa-chevron-down faq-icon"></i>
           </div>
           <div class="faq-answer">
-            <p>Un modèle freemium est prévu avec des abonnements premium pour les fonctions avancées.</p>
+            <p>Deepseyes proposera un modèle freemium :<br><br><strong>• Accès gratuit</strong> aux outils de base pour découvrir et utiliser l'OSINT assisté par IA.<br><br><strong>• Abonnement premium</strong> pour débloquer des fonctionnalités avancées, des analyses plus poussées et des limites élargies.<br><br>Les tarifs exacts seront annoncés à l'ouverture de la bêta, avec des offres préférentielles pour les premiers utilisateurs et les membres de l'Alpha.</p>
           </div>
         </div>
 
