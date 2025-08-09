@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fas fa-chevron-down faq-icon"></i>
           </div>
           <div class="faq-answer">
-            <p>Toutes les données sont chiffrées, traitées localement ou anonymement.</p>
+            <p>La sécurité et la confidentialité de vos données sont une priorité absolue pour Deepseyes.<br><br><strong>• Chiffrement complet</strong> des échanges et du stockage (HTTPS/TLS & chiffrement AES).<br><br><strong>• Aucune revente ni partage</strong> de vos informations personnelles à des tiers.<br><br><strong>• Conformité RGPD :</strong> vos données restent sous votre contrôle et peuvent être supprimées à tout moment sur simple demande.<br><br><strong>• Serveurs sécurisés</strong> avec surveillance en continu et protection contre les intrusions.<br><br>Deepseyes est conçu pour que vos recherches et vos données restent strictement confidentielles.</p>
           </div>
         </div>
 
