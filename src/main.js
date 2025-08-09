@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="fas fa-chevron-down faq-icon"></i>
           </div>
           <div class="faq-answer">
-            <p>Oui, des offres de consulting et d'accompagnement sur mesure seront proposées.</p>
+            <p>Pas pour le moment.<br><br>Deepseyes se concentre actuellement sur le développement et le lancement de la plateforme.<br><br>Cependant, des services de consulting et d'accompagnement personnalisé (veille stratégique, cybersécurité, formation OSINT) sont prévus dans le futur, une fois la version complète disponible.<br><br>Les annonces liées à ces services seront communiquées sur notre site et notre serveur Discord.</p>
           </div>
         </div>
       </div>
