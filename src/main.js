@@ -529,20 +529,11 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Footer -->
     <footer id="contact" class="footer">
       <div class="footer-content">
-        <div class="footer-brand">
-          <div>
-            <h3 class="footer-title">Deepseyes</h3>
-            <p class="footer-slogan">L'Intelligence de l'Invisible</p>
-          </div>
-        </div>
-        
         <div class="footer-links">
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
           <a href="#">Contact</a>
         </div>
-        
-        <div class="footer-separator"></div>
         
         <div class="social-icons">
           <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
@@ -551,9 +542,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
         </div>
         
-        <div class="footer-right">
-          <a href="#" class="btn-footer-cta">Rejoindre l'Alpha</a>
-          <p class="footer-copyright">© 2025 Deepseyes. Tous droits réservés.</p>
+        <div class="copyright">
+          <p>Copyright © Deepseyes 2025</p>
         </div>
       </div>
     </footer>
