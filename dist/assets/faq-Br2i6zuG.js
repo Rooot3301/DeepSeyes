@@ -1,110 +1,72 @@
-(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))i(s);new MutationObserver(s=>{for(const t of s)if(t.type==="childList")for(const o of t.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&i(o)}).observe(document,{childList:!0,subtree:!0});function n(s){const t={};return s.integrity&&(t.integrity=s.integrity),s.referrerPolicy&&(t.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?t.credentials="include":s.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function i(s){if(s.ep)return;s.ep=!0;const t=n(s);fetch(s.href,t)}})();function q(){const r=document.querySelector(".bg-effects"),e=document.createElement("div");e.className="bg-grid",r.appendChild(e),y(r)}function y(r){const e=document.createElement("canvas");e.className="particle-canvas",r.appendChild(e);const n=e.getContext("2d");let i=[],s;function t(){e.width=window.innerWidth,e.height=window.innerHeight}class o{constructor(){this.x=Math.random()*e.width,this.y=Math.random()*e.height,this.vx=(Math.random()-.5)*.5,this.vy=(Math.random()-.5)*.5,this.size=Math.random()*2+1,this.opacity=Math.random()*.5+.2}update(){this.x+=this.vx,this.y+=this.vy,(this.x<0||this.x>e.width)&&(this.vx*=-1),(this.y<0||this.y>e.height)&&(this.vy*=-1),this.x=Math.max(0,Math.min(e.width,this.x)),this.y=Math.max(0,Math.min(e.height,this.y))}draw(){n.beginPath(),n.arc(this.x,this.y,this.size,0,Math.PI*2),n.fillStyle=`rgba(37, 99, 235, ${this.opacity})`,n.fill()}}function v(){i=[];const l=Math.min(80,Math.floor(e.width*e.height/15e3));for(let a=0;a<l;a++)i.push(new o)}function b(){for(let a=0;a<i.length;a++)for(let c=a+1;c<i.length;c++){const d=i[a].x-i[c].x,u=i[a].y-i[c].y,f=Math.sqrt(d*d+u*u);if(f<120){const g=(1-f/120)*.15;n.beginPath(),n.moveTo(i[a].x,i[a].y),n.lineTo(i[c].x,i[c].y),n.strokeStyle=`rgba(37, 99, 235, ${g})`,n.lineWidth=.5,n.stroke()}}}function p(){n.clearRect(0,0,e.width,e.height),i.forEach(l=>{l.update(),l.draw()}),b(),s=requestAnimationFrame(p)}let m=0,h=0;e.addEventListener("mousemove",l=>{m=l.clientX,h=l.clientY,i.forEach(a=>{const c=m-a.x,d=h-a.y,u=Math.sqrt(c*c+d*d);if(u<100){const f=(100-u)/100*.01;a.vx+=c*f*.01,a.vy+=d*f*.01}})}),t(),v(),p(),window.addEventListener("resize",()=>{t(),v()}),document.addEventListener("visibilitychange",()=>{document.hidden?cancelAnimationFrame(s):p()})}function x(){const r=document.querySelectorAll(".faq-question");r.forEach(e=>{e.addEventListener("click",()=>{const n=e.nextElementSibling,i=e.querySelector(".faq-icon");r.forEach(s=>{if(s!==e){const t=s.nextElementSibling,o=s.querySelector(".faq-icon");t.classList.remove("active"),o.classList.remove("active")}}),n.classList.toggle("active"),i.classList.toggle("active")})})}function S(){const r=document.querySelector(".email-form"),e=document.querySelector(".email-input"),n=document.querySelector(".btn-notify");r.addEventListener("submit",i=>{i.preventDefault();const s=e.value.trim();s&&w(s)?(n.textContent="Inscrit !",n.style.background="#10b981",e.value="",setTimeout(()=>{n.textContent="Être notifié",n.style.background="#2563eb"},3e3)):(e.style.borderColor="#ef4444",setTimeout(()=>{e.style.borderColor="rgba(255, 255, 255, 0.15)"},2e3))})}function w(r){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(r)}function D(){document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",n=>{n.preventDefault();const i=e.getAttribute("href"),s=document.querySelector(i);s&&s.scrollIntoView({behavior:"smooth",block:"start"})})})}function E(){const r=document.querySelector(".header");window.addEventListener("scroll",()=>{window.scrollY>100?(r.style.background="rgba(10, 10, 10, 0.98)",r.style.borderBottomColor="rgba(255, 255, 255, 0.12)"):(r.style.background="rgba(10, 10, 10, 0.95)",r.style.borderBottomColor="rgba(255, 255, 255, 0.08)")})}function L(){const r={threshold:.1,rootMargin:"0px 0px -50px 0px"},e=new IntersectionObserver(t=>{t.forEach(o=>{o.isIntersecting&&o.target.classList.add("animate-in")})},r);document.querySelectorAll(".section, .feature-card, .alpha-section, .faq-item").forEach(t=>{t.classList.add("animate-on-scroll"),e.observe(t)}),document.querySelectorAll(".feature-card").forEach((t,o)=>{t.style.animationDelay=`${o*.1}s`}),document.querySelectorAll(".faq-item").forEach((t,o)=>{t.style.animationDelay=`${o*.05}s`})}document.addEventListener("DOMContentLoaded",()=>{const r=document.getElementById("app");r.innerHTML=`
+import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */function m(){const e=document.querySelector(".faq-search-input"),r=document.querySelectorAll(".faq-item"),s=document.querySelectorAll(".faq-category"),a=document.querySelector(".search-results"),t=document.querySelector(".clear-search");e&&(e.addEventListener("input",c=>{const n=c.target.value.toLowerCase().trim();if(n===""){r.forEach(i=>{i.style.display="block";const d=i.querySelector(".faq-answer"),u=i.querySelector(".faq-icon");d.classList.remove("active"),u.classList.remove("active")}),s.forEach(i=>i.style.display="block"),a.style.display="none",t.style.display="none";return}let p=!1,l=0;s.forEach(i=>{const d=i.querySelectorAll(".faq-item");let u=!1;d.forEach(o=>{const f=o.querySelector(".faq-question span").textContent.toLowerCase(),v=o.querySelector(".faq-answer p").textContent.toLowerCase();if(f.includes(n)||v.includes(n)){o.style.display="block",u=!0,p=!0,l++;const q=o.querySelector(".faq-answer"),b=o.querySelector(".faq-icon");q.classList.add("active"),b.classList.add("active"),h(o,n)}else o.style.display="none"}),i.style.display=u?"block":"none"}),p?(a.innerHTML=`<i class="fas fa-search"></i> ${l} résultat${l>1?"s":""} trouvé${l>1?"s":""} pour "${n}"`,a.style.display="block"):(a.innerHTML=`<i class="fas fa-search"></i> Aucun résultat pour "${n}"`,a.style.display="block"),t.style.display="block"}),t.addEventListener("click",()=>{e.value="",e.dispatchEvent(new Event("input")),e.focus()}),e.addEventListener("keydown",c=>{c.key==="Escape"&&t.click()}))}function h(e,r){const s=e.querySelector(".faq-question span"),a=e.querySelector(".faq-answer p");s.innerHTML=s.textContent,a.innerHTML=a.textContent;const t=new RegExp(`(${r})`,"gi");s.innerHTML=s.textContent.replace(t,"<mark>$1</mark>"),a.innerHTML=a.textContent.replace(t,"<mark>$1</mark>")}function g(){const e=document.querySelectorAll(".faq-question");e.forEach(r=>{r.addEventListener("click",()=>{const s=r.nextElementSibling,a=r.querySelector(".faq-icon");e.forEach(t=>{if(t!==r){const c=t.nextElementSibling,n=t.querySelector(".faq-icon");c.classList.remove("active"),n.classList.remove("active")}}),s.classList.toggle("active"),a.classList.toggle("active")})})}function y(){document.querySelectorAll('a[href^="#"]').forEach(r=>{r.addEventListener("click",s=>{s.preventDefault();const a=r.getAttribute("href"),t=document.querySelector(a);t&&t.scrollIntoView({behavior:"smooth",block:"start"})})})}document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("faq-app");e.innerHTML=`
     <!-- Background Effects -->
-    <div class="bg-effects"></div>
+    <div class="bg-effects">
+      <div class="bg-grid"></div>
+    </div>
     
     <!-- Header -->
     <header class="header">
       <nav class="nav">
-        <a href="#" class="logo-container">
+        <a href="/" class="logo-container">
           <img src="/Logo_Deepseyes_Transparent.png" alt="Deepseyes" class="logo-image">
           <span class="logo-text">Deepseyes</span>
         </a>
         <ul class="nav-links">
-          <li><a href="#accueil">À propos</a></li>
-          <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/#fonctionnalites">Fonctionnalités</a></li>
           <li><a href="/faq.html">FAQ</a></li>
           <li><a href="/tools.html">Nos outils</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/#contact">Contact</a></li>
         </ul>
         <a href="#" class="btn-login">Log In</a>
       </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section id="accueil" class="hero">
+    <!-- FAQ Hero Section -->
+    <section class="hero faq-hero">
       <div class="hero-content">
-        <h1>Le renseignement intelligent.</h1>
-        <p>Deepseyes est en cours de développement. Rejoignez bientôt notre alpha privée.</p>
-        <div class="hero-buttons">
-          <a href="#fonctionnalites" class="btn-primary">Explore Features</a>
-          <a href="/demo.html" class="btn-secondary">Voir la démo</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section id="fonctionnalites" class="section">
-      <h2>Fonctionnalités</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-search"></i>
+        <h1>Questions Fréquentes</h1>
+        <p>Trouvez rapidement les réponses à vos questions sur Deepseyes, notre plateforme d'OSINT assistée par IA.</p>
+        
+        <!-- Search Bar -->
+        <div class="faq-search-container">
+          <div class="faq-search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" class="faq-search-input" placeholder="Rechercher dans la FAQ..." autocomplete="off">
+            <button class="clear-search" style="display: none;">
+              <i class="fas fa-times"></i>
+            </button>
           </div>
-          <h3>Moteur de recherche OSINT intelligent</h3>
-          <p>Explorez le web avec des algorithmes d'IA avancés pour découvrir des informations pertinentes et cachées.</p>
+          <div class="search-results" style="display: none;"></div>
         </div>
         
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
-          <h3>Visualisation avancée des données</h3>
-          <p>Transformez vos données en graphiques interactifs et cartes de relations pour une analyse approfondie.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-bell"></i>
-          </div>
-          <h3>Système d'alertes personnalisées</h3>
-          <p>Recevez des notifications en temps réel sur les sujets qui vous intéressent grâce à notre veille automatisée.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-lock"></i>
-          </div>
-          <h3>Sécurité & confidentialité renforcées</h3>
-          <p>Vos recherches et données sont protégées par un chiffrement de bout en bout et des protocoles sécurisés.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-search-plus"></i>
-          </div>
-          <h3>Mode investigation contextuelle</h3>
-          <p>Activez un environnement dédié à l'enquête. Visualisation en plein écran, filtres d'entités, historique des découvertes, et boîte de notes personnelles. Conçu pour les analystes, journalistes ou professionnels de la cybersécurité.</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
+        <div class="faq-quick-nav">
+          <a href="#general" class="quick-nav-btn">
+            <i class="fas fa-info-circle"></i>
+            Général
+          </a>
+          <a href="#access" class="quick-nav-btn">
+            <i class="fas fa-rocket"></i>
+            Accès & Alpha
+          </a>
+          <a href="#security" class="quick-nav-btn">
             <i class="fas fa-shield-alt"></i>
-          </div>
-          <h3>Conformité RGPD & éthique des données</h3>
-          <p>Deepseyes respecte strictement les normes européennes en matière de traitement des données. Aucune donnée sensible n'est conservée, et toutes les analyses sont effectuées dans le respect de la vie privée. Un OSINT éthique, transparent et responsable.</p>
+            Sécurité
+          </a>
+          <a href="#services" class="quick-nav-btn">
+            <i class="fas fa-handshake"></i>
+            Services
+          </a>
         </div>
-      </div>
-    </section>
-
-    <!-- Alpha Section -->
-    <section class="section">
-      <div class="alpha-section">
-        <h2>Rejoindre l'Alpha</h2>
-        <p>L'alpha de Deepseyes ouvrira prochainement. Inscrivez-vous pour être informé en avant-première.</p>
-        <form class="email-form">
-          <input type="email" class="email-input" placeholder="Votre adresse e-mail" required>
-          <button type="submit" class="btn-notify">Être notifié</button>
-        </form>
       </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="section">
-      <h2>Questions Fréquentes</h2>
+    <section class="section faq-main">
       <div class="faq-container">
         
         <!-- Général -->
-        <div class="faq-category">
+        <div id="general" class="faq-category">
           <h3 class="faq-category-title">
             <i class="fas fa-info-circle"></i>
             Général
@@ -132,7 +94,7 @@
         </div>
 
         <!-- Accès & Alpha -->
-        <div class="faq-category">
+        <div id="access" class="faq-category">
           <h3 class="faq-category-title">
             <i class="fas fa-rocket"></i>
             Accès & Alpha
@@ -180,7 +142,7 @@
         </div>
 
         <!-- Technique & Sécurité -->
-        <div class="faq-category">
+        <div id="security" class="faq-category">
           <h3 class="faq-category-title">
             <i class="fas fa-shield-alt"></i>
             Technique & Sécurité
@@ -218,7 +180,7 @@
         </div>
 
         <!-- Services -->
-        <div class="faq-category">
+        <div id="services" class="faq-category">
           <h3 class="faq-category-title">
             <i class="fas fa-handshake"></i>
             Services
@@ -237,8 +199,26 @@
       </div>
     </section>
 
+    <!-- CTA Section -->
+    <section class="section">
+      <div class="faq-cta">
+        <h2>Vous avez d'autres questions ?</h2>
+        <p>Rejoignez notre communauté Discord pour poser vos questions directement à l'équipe et échanger avec d'autres utilisateurs.</p>
+        <div class="cta-buttons">
+          <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="btn-primary">
+            <i class="fab fa-discord"></i>
+            Rejoindre Discord
+          </a>
+          <a href="/#contact" class="btn-secondary">
+            <i class="fas fa-envelope"></i>
+            Nous contacter
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer -->
-    <footer id="contact" class="footer">
+    <footer class="footer">
       <div class="footer-content">
         <div class="footer-links">
           <a href="#">Mentions légales</a>
@@ -258,4 +238,4 @@
         </div>
       </div>
     </footer>
-  `,q(),x(),S(),D(),E(),L()});
+  `;const r=document.querySelector(".bg-effects"),s=document.createElement("div");s.className="bg-grid",r.appendChild(s),g(),y(),m()});
