@@ -1,0 +1,69 @@
+🚀 CHECKLIST FTP - DEEPSEYES
+============================
+
+📋 AVANT DE COMMENCER :
+□ Build généré (npm run build)
+□ FileZilla installé
+□ Identifiants FTP récupérés :
+  - Serveur : ftp.votre-domaine.com
+  - Username : _______________
+  - Password : _______________
+  - Port : 21 (ou 22 pour SFTP)
+
+🔌 CONNEXION FTP :
+□ Ouvrir FileZilla
+□ Saisir les identifiants
+□ Tester la connexion
+□ Naviguer vers /public_html/
+
+🗑️ NETTOYAGE (si nécessaire) :
+□ Sauvegarder les anciens fichiers
+□ Supprimer le contenu de public_html
+□ Vérifier que le dossier est vide
+
+📁 UPLOAD DES FICHIERS :
+□ Côté local : aller dans le dossier dist/
+□ Sélectionner TOUT le contenu de dist/ (Ctrl+A)
+□ Glisser-déposer vers public_html/
+□ Attendre la fin du transfert (vérifier la file d'attente)
+
+📂 FICHIERS À VÉRIFIER APRÈS UPLOAD :
+□ index.html (dans public_html/)
+□ faq.html
+□ demo.html  
+□ tools.html
+□ nettrace.html
+□ Dossier assets/ (complet)
+□ Logo_Deepseyes_Transparent.png
+□ vite.svg
+
+🔐 PERMISSIONS :
+□ Dossiers : 755 (rwxr-xr-x)
+□ Fichiers : 644 (rw-r--r--)
+□ Dossier assets/ : 755
+□ Fichiers dans assets/ : 644
+
+✅ TESTS FINAUX :
+□ https://votre-domaine.com/ (accueil)
+□ https://votre-domaine.com/faq.html
+□ https://votre-domaine.com/demo.html
+□ https://votre-domaine.com/tools.html
+□ https://votre-domaine.com/nettrace.html
+□ Navigation entre pages OK
+□ Images s'affichent
+□ CSS/JS se chargent
+□ Version mobile OK
+
+🆘 EN CAS DE PROBLÈME :
+□ Vérifier les erreurs dans FileZilla
+□ Contrôler les permissions
+□ Vider le cache navigateur
+□ Re-uploader les fichiers manquants
+
+🎉 SITE EN LIGNE !
+Votre site Deepseyes est maintenant accessible !
+
+IMPORTANT : 
+- Uploadez le CONTENU de dist/, pas le dossier dist/ lui-même
+- Tous les fichiers doivent être dans public_html/ directement
+- En cas de doute, contactez votre hébergeur
