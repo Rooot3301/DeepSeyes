@@ -1,0 +1,37 @@
+🚀 CHECKLIST UPLOAD CPANEL - DEEPSEYES
+=====================================
+
+📁 FICHIERS À UPLOADER (depuis le dossier dist/) :
+□ index.html
+□ faq.html  
+□ demo.html
+□ tools.html
+□ nettrace.html
+□ Logo_Deepseyes_Transparent.png
+□ vite.svg
+□ Dossier assets/ complet (avec tous les fichiers CSS/JS)
+
+🎯 ÉTAPES CPANEL :
+□ 1. Se connecter au cPanel
+□ 2. Ouvrir "Gestionnaire de fichiers"
+□ 3. Aller dans public_html
+□ 4. Supprimer les anciens fichiers
+□ 5. Uploader TOUT le contenu de dist/
+□ 6. Vérifier que index.html est à la racine
+
+✅ TESTS POST-UPLOAD :
+□ Page d'accueil fonctionne
+□ Page FAQ + recherche fonctionne  
+□ Page démo fonctionne
+□ Page outils fonctionne
+□ Page NetTrace fonctionne
+□ Logo s'affiche correctement
+□ Navigation entre pages OK
+□ Version mobile OK
+
+⚠️ IMPORTANT :
+- Uploader le CONTENU de dist/, pas le dossier dist/ lui-même
+- Tous les fichiers doivent être dans public_html directement
+- Vérifier les permissions si problème (755/644)
+
+🎉 VOTRE SITE EST PRÊT !
