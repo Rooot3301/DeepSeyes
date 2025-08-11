@@ -279,6 +279,11 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="bg-grid"></div>
     </div>
     
+    <!-- Floating Discord Button -->
+    <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="floating-discord" title="Rejoindre Discord">
+      <i class="fab fa-discord"></i>
+    </a>
+    
     <!-- Header -->
     <header class="demo-header">
       <nav class="nav">
@@ -288,6 +293,9 @@ document.addEventListener('DOMContentLoaded', () => {
         </a>
         <div class="nav-right">
           <span class="demo-badge">DÉMO</span>
+          <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
           <a href="/" class="btn-back">← Retour</a>
         </div>
       </nav>
