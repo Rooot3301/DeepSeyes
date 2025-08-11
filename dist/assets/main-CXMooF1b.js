@@ -1,6 +1,11 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */function q(){const s=document.querySelector(".bg-effects"),e=document.createElement("div");e.className="bg-grid",s.appendChild(e),y(s)}function y(s){const e=document.createElement("canvas");e.className="particle-canvas",s.appendChild(e);const t=e.getContext("2d");let i=[],a;function r(){e.width=window.innerWidth,e.height=window.innerHeight}class o{constructor(){this.x=Math.random()*e.width,this.y=Math.random()*e.height,this.vx=(Math.random()-.5)*.5,this.vy=(Math.random()-.5)*.5,this.size=Math.random()*2+1,this.opacity=Math.random()*.5+.2}update(){this.x+=this.vx,this.y+=this.vy,(this.x<0||this.x>e.width)&&(this.vx*=-1),(this.y<0||this.y>e.height)&&(this.vy*=-1),this.x=Math.max(0,Math.min(e.width,this.x)),this.y=Math.max(0,Math.min(e.height,this.y))}draw(){t.beginPath(),t.arc(this.x,this.y,this.size,0,Math.PI*2),t.fillStyle=`rgba(37, 99, 235, ${this.opacity})`,t.fill()}}function v(){i=[];const l=Math.min(80,Math.floor(e.width*e.height/15e3));for(let n=0;n<l;n++)i.push(new o)}function b(){for(let n=0;n<i.length;n++)for(let c=n+1;c<i.length;c++){const d=i[n].x-i[c].x,u=i[n].y-i[c].y,p=Math.sqrt(d*d+u*u);if(p<120){const g=(1-p/120)*.15;t.beginPath(),t.moveTo(i[n].x,i[n].y),t.lineTo(i[c].x,i[c].y),t.strokeStyle=`rgba(37, 99, 235, ${g})`,t.lineWidth=.5,t.stroke()}}}function f(){t.clearRect(0,0,e.width,e.height),i.forEach(l=>{l.update(),l.draw()}),b(),a=requestAnimationFrame(f)}let m=0,h=0;e.addEventListener("mousemove",l=>{m=l.clientX,h=l.clientY,i.forEach(n=>{const c=m-n.x,d=h-n.y,u=Math.sqrt(c*c+d*d);if(u<100){const p=(100-u)/100*.01;n.vx+=c*p*.01,n.vy+=d*p*.01}})}),r(),v(),f(),window.addEventListener("resize",()=>{r(),v()}),document.addEventListener("visibilitychange",()=>{document.hidden?cancelAnimationFrame(a):f()})}function x(){const s=document.querySelectorAll(".faq-question");s.forEach(e=>{e.addEventListener("click",()=>{const t=e.nextElementSibling,i=e.querySelector(".faq-icon");s.forEach(a=>{if(a!==e){const r=a.nextElementSibling,o=a.querySelector(".faq-icon");r.classList.remove("active"),o.classList.remove("active")}}),t.classList.toggle("active"),i.classList.toggle("active")})})}function S(){const s=document.querySelector(".email-form"),e=document.querySelector(".email-input"),t=document.querySelector(".btn-notify");s.addEventListener("submit",i=>{i.preventDefault();const a=e.value.trim();a&&w(a)?(t.textContent="Inscrit !",t.style.background="#10b981",e.value="",setTimeout(()=>{t.textContent="Être notifié",t.style.background="#2563eb"},3e3)):(e.style.borderColor="#ef4444",setTimeout(()=>{e.style.borderColor="rgba(255, 255, 255, 0.15)"},2e3))})}function w(s){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s)}function D(){document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",t=>{t.preventDefault();const i=e.getAttribute("href"),a=document.querySelector(i);a&&a.scrollIntoView({behavior:"smooth",block:"start"})})})}function E(){const s=document.querySelector(".header");window.addEventListener("scroll",()=>{window.scrollY>100?(s.style.background="rgba(10, 10, 10, 0.98)",s.style.borderBottomColor="rgba(255, 255, 255, 0.12)"):(s.style.background="rgba(10, 10, 10, 0.95)",s.style.borderBottomColor="rgba(255, 255, 255, 0.08)")})}function A(){const s={threshold:.1,rootMargin:"0px 0px -50px 0px"},e=new IntersectionObserver(r=>{r.forEach(o=>{o.isIntersecting&&o.target.classList.add("animate-in")})},s);document.querySelectorAll(".section, .feature-card, .alpha-section, .faq-item").forEach(r=>{r.classList.add("animate-on-scroll"),e.observe(r)}),document.querySelectorAll(".feature-card").forEach((r,o)=>{r.style.animationDelay=`${o*.1}s`}),document.querySelectorAll(".faq-item").forEach((r,o)=>{r.style.animationDelay=`${o*.05}s`})}document.addEventListener("DOMContentLoaded",()=>{const s=document.getElementById("app");s.innerHTML=`
+import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */function q(){const t=document.querySelector(".bg-effects"),e=document.createElement("div");e.className="bg-grid",t.appendChild(e),y(t)}function y(t){const e=document.createElement("canvas");e.className="particle-canvas",t.appendChild(e);const s=e.getContext("2d");let i=[],a;function r(){e.width=window.innerWidth,e.height=window.innerHeight}class o{constructor(){this.x=Math.random()*e.width,this.y=Math.random()*e.height,this.vx=(Math.random()-.5)*.5,this.vy=(Math.random()-.5)*.5,this.size=Math.random()*2+1,this.opacity=Math.random()*.5+.2}update(){this.x+=this.vx,this.y+=this.vy,(this.x<0||this.x>e.width)&&(this.vx*=-1),(this.y<0||this.y>e.height)&&(this.vy*=-1),this.x=Math.max(0,Math.min(e.width,this.x)),this.y=Math.max(0,Math.min(e.height,this.y))}draw(){s.beginPath(),s.arc(this.x,this.y,this.size,0,Math.PI*2),s.fillStyle=`rgba(37, 99, 235, ${this.opacity})`,s.fill()}}function v(){i=[];const l=Math.min(80,Math.floor(e.width*e.height/15e3));for(let n=0;n<l;n++)i.push(new o)}function b(){for(let n=0;n<i.length;n++)for(let c=n+1;c<i.length;c++){const d=i[n].x-i[c].x,u=i[n].y-i[c].y,f=Math.sqrt(d*d+u*u);if(f<120){const g=(1-f/120)*.15;s.beginPath(),s.moveTo(i[n].x,i[n].y),s.lineTo(i[c].x,i[c].y),s.strokeStyle=`rgba(37, 99, 235, ${g})`,s.lineWidth=.5,s.stroke()}}}function p(){s.clearRect(0,0,e.width,e.height),i.forEach(l=>{l.update(),l.draw()}),b(),a=requestAnimationFrame(p)}let m=0,h=0;e.addEventListener("mousemove",l=>{m=l.clientX,h=l.clientY,i.forEach(n=>{const c=m-n.x,d=h-n.y,u=Math.sqrt(c*c+d*d);if(u<100){const f=(100-u)/100*.01;n.vx+=c*f*.01,n.vy+=d*f*.01}})}),r(),v(),p(),window.addEventListener("resize",()=>{r(),v()}),document.addEventListener("visibilitychange",()=>{document.hidden?cancelAnimationFrame(a):p()})}function x(){const t=document.querySelectorAll(".faq-question");t.forEach(e=>{e.addEventListener("click",()=>{const s=e.nextElementSibling,i=e.querySelector(".faq-icon");t.forEach(a=>{if(a!==e){const r=a.nextElementSibling,o=a.querySelector(".faq-icon");r.classList.remove("active"),o.classList.remove("active")}}),s.classList.toggle("active"),i.classList.toggle("active")})})}function S(){const t=document.querySelector(".email-form"),e=document.querySelector(".email-input"),s=document.querySelector(".btn-notify");t.addEventListener("submit",i=>{i.preventDefault();const a=e.value.trim();a&&w(a)?(s.textContent="Inscrit !",s.style.background="#10b981",e.value="",setTimeout(()=>{s.textContent="Être notifié",s.style.background="#2563eb"},3e3)):(e.style.borderColor="#ef4444",setTimeout(()=>{e.style.borderColor="rgba(255, 255, 255, 0.15)"},2e3))})}function w(t){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t)}function L(){document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",s=>{s.preventDefault();const i=e.getAttribute("href"),a=document.querySelector(i);a&&a.scrollIntoView({behavior:"smooth",block:"start"})})})}function D(){const t=document.querySelector(".header");window.addEventListener("scroll",()=>{window.scrollY>100?(t.style.background="rgba(10, 10, 10, 0.98)",t.style.borderBottomColor="rgba(255, 255, 255, 0.12)"):(t.style.background="rgba(10, 10, 10, 0.95)",t.style.borderBottomColor="rgba(255, 255, 255, 0.08)")})}function E(){const t={threshold:.1,rootMargin:"0px 0px -50px 0px"},e=new IntersectionObserver(r=>{r.forEach(o=>{o.isIntersecting&&o.target.classList.add("animate-in")})},t);document.querySelectorAll(".section, .feature-card, .alpha-section, .faq-item").forEach(r=>{r.classList.add("animate-on-scroll"),e.observe(r)}),document.querySelectorAll(".feature-card").forEach((r,o)=>{r.style.animationDelay=`${o*.1}s`}),document.querySelectorAll(".faq-item").forEach((r,o)=>{r.style.animationDelay=`${o*.05}s`})}document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("app");t.innerHTML=`
     <!-- Background Effects -->
     <div class="bg-effects"></div>
+    
+    <!-- Floating Discord Button -->
+    <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="floating-discord" title="Rejoindre Discord">
+      <i class="fab fa-discord"></i>
+    </a>
     
     <!-- Header -->
     <header class="header">
@@ -16,6 +21,9 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */functio
           <li><a href="/tools.html">Nos outils</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
         <a href="#" class="btn-login">Log In</a>
       </nav>
     </header>
@@ -95,6 +103,12 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */functio
           <input type="email" class="email-input" placeholder="Votre adresse e-mail" required>
           <button type="submit" class="btn-notify">Être notifié</button>
         </form>
+        <div style="margin-top: 2rem;">
+          <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="discord-cta">
+            <i class="fab fa-discord"></i>
+            Rejoindre Discord maintenant
+          </a>
+        </div>
       </div>
     </section>
 
@@ -247,10 +261,18 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */functio
         </div>
         
         <div class="social-icons">
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="social-icon discord" title="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="https://github.com/Rooot3301" target="_blank" class="social-icon github" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-icon" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
         </div>
         
         <div class="copyright">
@@ -258,4 +280,4 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */functio
         </div>
       </div>
     </footer>
-  `,q(),x(),S(),D(),E(),A()});
+  `,q(),x(),S(),L(),D(),E(),A()});function A(){const t=document.querySelector(".mobile-menu-toggle"),e=document.querySelector(".nav-links");t&&e&&(t.addEventListener("click",()=>{e.classList.toggle("active");const s=t.querySelector("i");e.classList.contains("active")?(s.classList.remove("fa-bars"),s.classList.add("fa-times")):(s.classList.remove("fa-times"),s.classList.add("fa-bars"))}),e.addEventListener("click",s=>{if(s.target.tagName==="A"){e.classList.remove("active");const i=t.querySelector("i");i.classList.remove("fa-times"),i.classList.add("fa-bars")}}),document.addEventListener("click",s=>{if(!t.contains(s.target)&&!e.contains(s.target)){e.classList.remove("active");const i=t.querySelector("i");i.classList.remove("fa-times"),i.classList.add("fa-bars")}}))}

@@ -1,8 +1,13 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */document.addEventListener("DOMContentLoaded",()=>{const a=document.getElementById("tools-app");a.innerHTML=`
+import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("tools-app");e.innerHTML=`
     <!-- Background Effects -->
     <div class="bg-effects">
       <div class="bg-grid"></div>
     </div>
+    
+    <!-- Floating Discord Button -->
+    <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="floating-discord" title="Rejoindre Discord">
+      <i class="fab fa-discord"></i>
+    </a>
     
     <!-- Header -->
     <header class="header">
@@ -18,6 +23,9 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */documen
           <li><a href="/tools.html">Nos outils</a></li>
           <li><a href="/#contact">Contact</a></li>
         </ul>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
         <a href="#" class="btn-login">Log In</a>
       </nav>
     </header>
@@ -112,10 +120,18 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */documen
         </div>
         
         <div class="social-icons">
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="social-icon discord" title="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="https://github.com/Rooot3301" target="_blank" class="social-icon github" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-icon" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
         </div>
         
         <div class="copyright">
@@ -123,4 +139,4 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */documen
         </div>
       </div>
     </footer>
-  `;const o=document.querySelector(".bg-effects"),s=document.createElement("div");s.className="bg-grid",o.appendChild(s)});
+  `;const a=document.querySelector(".bg-effects"),s=document.createElement("div");s.className="bg-grid",a.appendChild(s),i()});function i(){const e=document.querySelector(".mobile-menu-toggle"),a=document.querySelector(".nav-links");e&&a&&(e.addEventListener("click",()=>{a.classList.toggle("active");const s=e.querySelector("i");a.classList.contains("active")?(s.classList.remove("fa-bars"),s.classList.add("fa-times")):(s.classList.remove("fa-times"),s.classList.add("fa-bars"))}),a.addEventListener("click",s=>{if(s.target.tagName==="A"){a.classList.remove("active");const t=e.querySelector("i");t.classList.remove("fa-times"),t.classList.add("fa-bars")}}),document.addEventListener("click",s=>{if(!e.contains(s.target)&&!a.contains(s.target)){a.classList.remove("active");const t=e.querySelector("i");t.classList.remove("fa-times"),t.classList.add("fa-bars")}}))}

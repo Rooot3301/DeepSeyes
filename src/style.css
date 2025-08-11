@@ -97,6 +97,23 @@ body {
   gap: 2.5rem;
 }
 
+/* Mobile Menu Toggle (visible on mobile) */
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .nav-links a {
   color: #cccccc;
   text-decoration: none;
@@ -688,36 +705,55 @@ body {
 @media (max-width: 768px) {
   .nav {
     padding: 0 1rem;
-    flex-wrap: wrap;
-    gap: 1rem;
+    position: relative;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+    order: 2;
+  }
+  
+  .btn-login {
+    order: 3;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
   
   .nav-links {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 1px);
     left: 0;
     right: 0;
     background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(20px);
     border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   }
   
   .nav-links.active {
     display: flex;
   }
   
-  .mobile-menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
+  .nav-links a {
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background: rgba(255, 255, 255, 0.05);
+    padding-left: 1rem;
+  }
+  
+  .nav-links li:last-child a {
+    border-bottom: none;
   }
   
   .hero {

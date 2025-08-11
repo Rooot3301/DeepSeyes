@@ -1,8 +1,13 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */document.addEventListener("DOMContentLoaded",()=>{const i=document.getElementById("nettrace-app");i.innerHTML=`
+import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("nettrace-app");t.innerHTML=`
     <!-- Background Effects -->
     <div class="bg-effects">
       <div class="bg-grid"></div>
     </div>
+    
+    <!-- Floating Discord Button -->
+    <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="floating-discord" title="Rejoindre Discord">
+      <i class="fab fa-discord"></i>
+    </a>
     
     <!-- Header -->
     <header class="header">
@@ -18,6 +23,9 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */documen
           <li><a href="/tools.html">Nos outils</a></li>
           <li><a href="/#contact">Contact</a></li>
         </ul>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
         <a href="#" class="btn-login">Log In</a>
       </nav>
     </header>
@@ -405,10 +413,18 @@ By: Assistant IA | Version: 1.0
         </div>
         
         <div class="social-icons">
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="social-icon discord" title="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="https://github.com/Rooot3301" target="_blank" class="social-icon github" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-icon" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
         </div>
         
         <div class="copyright">
@@ -416,4 +432,4 @@ By: Assistant IA | Version: 1.0
         </div>
       </div>
     </footer>
-  `;const a=document.querySelector(".bg-effects"),e=document.createElement("div");e.className="bg-grid",a.appendChild(e),document.querySelectorAll('a[href^="#"]').forEach(s=>{s.addEventListener("click",o=>{o.preventDefault();const n=s.getAttribute("href"),t=document.querySelector(n);t&&t.scrollIntoView({behavior:"smooth",block:"start"})})})});
+  `;const s=document.querySelector(".bg-effects"),e=document.createElement("div");e.className="bg-grid",s.appendChild(e),document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",n=>{n.preventDefault();const c=a.getAttribute("href"),o=document.querySelector(c);o&&o.scrollIntoView({behavior:"smooth",block:"start"})})}),r()});function r(){const t=document.querySelector(".mobile-menu-toggle"),s=document.querySelector(".nav-links");t&&s&&(t.addEventListener("click",()=>{s.classList.toggle("active");const e=t.querySelector("i");s.classList.contains("active")?(e.classList.remove("fa-bars"),e.classList.add("fa-times")):(e.classList.remove("fa-times"),e.classList.add("fa-bars"))}),s.addEventListener("click",e=>{if(e.target.tagName==="A"){s.classList.remove("active");const i=t.querySelector("i");i.classList.remove("fa-times"),i.classList.add("fa-bars")}}),document.addEventListener("click",e=>{if(!t.contains(e.target)&&!s.contains(e.target)){s.classList.remove("active");const i=t.querySelector("i");i.classList.remove("fa-times"),i.classList.add("fa-bars")}}))}

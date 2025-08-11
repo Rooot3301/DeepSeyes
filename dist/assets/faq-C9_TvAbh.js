@@ -1,8 +1,13 @@
-import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */function m(){const e=document.querySelector(".faq-search-input"),r=document.querySelectorAll(".faq-item"),s=document.querySelectorAll(".faq-category"),a=document.querySelector(".search-results"),t=document.querySelector(".clear-search");e&&(e.addEventListener("input",c=>{const n=c.target.value.toLowerCase().trim();if(n===""){r.forEach(i=>{i.style.display="block";const d=i.querySelector(".faq-answer"),u=i.querySelector(".faq-icon");d.classList.remove("active"),u.classList.remove("active")}),s.forEach(i=>i.style.display="block"),a.style.display="none",t.style.display="none";return}let p=!1,l=0;s.forEach(i=>{const d=i.querySelectorAll(".faq-item");let u=!1;d.forEach(o=>{const f=o.querySelector(".faq-question span").textContent.toLowerCase(),v=o.querySelector(".faq-answer p").textContent.toLowerCase();if(f.includes(n)||v.includes(n)){o.style.display="block",u=!0,p=!0,l++;const q=o.querySelector(".faq-answer"),b=o.querySelector(".faq-icon");q.classList.add("active"),b.classList.add("active"),h(o,n)}else o.style.display="none"}),i.style.display=u?"block":"none"}),p?(a.innerHTML=`<i class="fas fa-search"></i> ${l} résultat${l>1?"s":""} trouvé${l>1?"s":""} pour "${n}"`,a.style.display="block"):(a.innerHTML=`<i class="fas fa-search"></i> Aucun résultat pour "${n}"`,a.style.display="block"),t.style.display="block"}),t.addEventListener("click",()=>{e.value="",e.dispatchEvent(new Event("input")),e.focus()}),e.addEventListener("keydown",c=>{c.key==="Escape"&&t.click()}))}function h(e,r){const s=e.querySelector(".faq-question span"),a=e.querySelector(".faq-answer p");s.innerHTML=s.textContent,a.innerHTML=a.textContent;const t=new RegExp(`(${r})`,"gi");s.innerHTML=s.textContent.replace(t,"<mark>$1</mark>"),a.innerHTML=a.textContent.replace(t,"<mark>$1</mark>")}function g(){const e=document.querySelectorAll(".faq-question");e.forEach(r=>{r.addEventListener("click",()=>{const s=r.nextElementSibling,a=r.querySelector(".faq-icon");e.forEach(t=>{if(t!==r){const c=t.nextElementSibling,n=t.querySelector(".faq-icon");c.classList.remove("active"),n.classList.remove("active")}}),s.classList.toggle("active"),a.classList.toggle("active")})})}function y(){document.querySelectorAll('a[href^="#"]').forEach(r=>{r.addEventListener("click",s=>{s.preventDefault();const a=r.getAttribute("href"),t=document.querySelector(a);t&&t.scrollIntoView({behavior:"smooth",block:"start"})})})}document.addEventListener("DOMContentLoaded",()=>{const e=document.getElementById("faq-app");e.innerHTML=`
+import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */function q(){const s=document.querySelector(".faq-search-input"),t=document.querySelectorAll(".faq-item"),e=document.querySelectorAll(".faq-category"),a=document.querySelector(".search-results"),i=document.querySelector(".clear-search");s&&(s.addEventListener("input",c=>{const r=c.target.value.toLowerCase().trim();if(r===""){t.forEach(n=>{n.style.display="block";const u=n.querySelector(".faq-answer"),d=n.querySelector(".faq-icon");u.classList.remove("active"),d.classList.remove("active")}),e.forEach(n=>n.style.display="block"),a.style.display="none",i.style.display="none";return}let f=!1,l=0;e.forEach(n=>{const u=n.querySelectorAll(".faq-item");let d=!1;u.forEach(o=>{const p=o.querySelector(".faq-question span").textContent.toLowerCase(),v=o.querySelector(".faq-answer p").textContent.toLowerCase();if(p.includes(r)||v.includes(r)){o.style.display="block",d=!0,f=!0,l++;const m=o.querySelector(".faq-answer"),b=o.querySelector(".faq-icon");m.classList.add("active"),b.classList.add("active"),g(o,r)}else o.style.display="none"}),n.style.display=d?"block":"none"}),f?(a.innerHTML=`<i class="fas fa-search"></i> ${l} résultat${l>1?"s":""} trouvé${l>1?"s":""} pour "${r}"`,a.style.display="block"):(a.innerHTML=`<i class="fas fa-search"></i> Aucun résultat pour "${r}"`,a.style.display="block"),i.style.display="block"}),i.addEventListener("click",()=>{s.value="",s.dispatchEvent(new Event("input")),s.focus()}),s.addEventListener("keydown",c=>{c.key==="Escape"&&i.click()}))}function g(s,t){const e=s.querySelector(".faq-question span"),a=s.querySelector(".faq-answer p");e.innerHTML=e.textContent,a.innerHTML=a.textContent;const i=new RegExp(`(${t})`,"gi");e.innerHTML=e.textContent.replace(i,"<mark>$1</mark>"),a.innerHTML=a.textContent.replace(i,"<mark>$1</mark>")}function h(){const s=document.querySelectorAll(".faq-question");s.forEach(t=>{t.addEventListener("click",()=>{const e=t.nextElementSibling,a=t.querySelector(".faq-icon");s.forEach(i=>{if(i!==t){const c=i.nextElementSibling,r=i.querySelector(".faq-icon");c.classList.remove("active"),r.classList.remove("active")}}),e.classList.toggle("active"),a.classList.toggle("active")})})}function y(){document.querySelectorAll('a[href^="#"]').forEach(t=>{t.addEventListener("click",e=>{e.preventDefault();const a=t.getAttribute("href"),i=document.querySelector(a);i&&i.scrollIntoView({behavior:"smooth",block:"start"})})})}document.addEventListener("DOMContentLoaded",()=>{const s=document.getElementById("faq-app");s.innerHTML=`
     <!-- Background Effects -->
     <div class="bg-effects">
       <div class="bg-grid"></div>
     </div>
+    
+    <!-- Floating Discord Button -->
+    <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="floating-discord" title="Rejoindre Discord">
+      <i class="fab fa-discord"></i>
+    </a>
     
     <!-- Header -->
     <header class="header">
@@ -18,6 +23,9 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */functio
           <li><a href="/tools.html">Nos outils</a></li>
           <li><a href="/#contact">Contact</a></li>
         </ul>
+        <button class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
         <a href="#" class="btn-login">Log In</a>
       </nav>
     </header>
@@ -227,10 +235,18 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */functio
         </div>
         
         <div class="social-icons">
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="https://discord.gg/T7JrFDPWBf" target="_blank" class="social-icon discord" title="Discord">
+            <i class="fab fa-discord"></i>
+          </a>
+          <a href="https://github.com/Rooot3301" target="_blank" class="social-icon github" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-icon" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
         </div>
         
         <div class="copyright">
@@ -238,4 +254,4 @@ import"./modulepreload-polyfill-B5Qt9EMX.js";/* empty css              */functio
         </div>
       </div>
     </footer>
-  `;const r=document.querySelector(".bg-effects"),s=document.createElement("div");s.className="bg-grid",r.appendChild(s),g(),y(),m()});
+  `;const t=document.querySelector(".bg-effects"),e=document.createElement("div");e.className="bg-grid",t.appendChild(e),h(),y(),q(),S()});function S(){const s=document.querySelector(".mobile-menu-toggle"),t=document.querySelector(".nav-links");s&&t&&(s.addEventListener("click",()=>{t.classList.toggle("active");const e=s.querySelector("i");t.classList.contains("active")?(e.classList.remove("fa-bars"),e.classList.add("fa-times")):(e.classList.remove("fa-times"),e.classList.add("fa-bars"))}),t.addEventListener("click",e=>{if(e.target.tagName==="A"){t.classList.remove("active");const a=s.querySelector("i");a.classList.remove("fa-times"),a.classList.add("fa-bars")}}),document.addEventListener("click",e=>{if(!s.contains(e.target)&&!t.contains(e.target)){t.classList.remove("active");const a=s.querySelector("i");a.classList.remove("fa-times"),a.classList.add("fa-bars")}}))}
