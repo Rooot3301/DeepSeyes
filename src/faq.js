@@ -1,4 +1,5 @@
 import './style.css'
+import { getHeaderHTML, initMobileMenu } from './components/layout.js';
 
 // Search functionality
 function initFAQSearch() {
@@ -167,25 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </a>
     
     <!-- Header -->
-    <header class="header">
-      <nav class="nav">
-        <a href="/" class="logo-container">
-          <img src="/Logo_Deepseyes_Transparent.png" alt="Deepseyes" class="logo-image">
-          <span class="logo-text">Deepseyes</span>
-        </a>
-        <ul class="nav-links">
-          <li><a href="/">Accueil</a></li>
-          <li><a href="/#fonctionnalites">Fonctionnalités</a></li>
-          <li><a href="/faq.html">FAQ</a></li>
-          <li><a href="/tools.html">Nos outils</a></li>
-          <li><a href="/#contact">Contact</a></li>
-        </ul>
-        <button class="mobile-menu-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-        <a href="#" class="btn-login">Log In</a>
-      </nav>
-    </header>
+    ${getHeaderHTML()}
 
     <!-- FAQ Hero Section -->
     <section class="hero faq-hero">
@@ -425,43 +408,3 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAQSearch();
   initMobileMenu();
 });
-// Mobile menu functionality
-function initMobileMenu() {
-  const mobileToggle = document.querySelector('.mobile-menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  
-  if (mobileToggle && navLinks) {
-    mobileToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      const icon = mobileToggle.querySelector('i');
-      
-      if (navLinks.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-      } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
-    
-    // Close menu when clicking on a link
-    navLinks.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') {
-        navLinks.classList.remove('active');
-        const icon = mobileToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active');
-        const icon = mobileToggle.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-      }
-    });
-  }
-}

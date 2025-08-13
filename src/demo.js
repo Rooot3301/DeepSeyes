@@ -1,4 +1,6 @@
 import './demo.css'
+// Import shared mobile menu behaviour so that the navigation can be toggled
+import { initMobileMenu } from './components/layout.js';
 
 // Network graph data
 const graphData = {
@@ -413,5 +415,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initAIChat();
     initHistory();
     initDownload();
+    // Enable responsive navigation
+    initMobileMenu();
   }, 100);
 });
